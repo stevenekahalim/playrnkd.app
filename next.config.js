@@ -8,6 +8,7 @@ const nextConfig = {
         { source: '/terms-of-service', destination: '/terms-of-service.html' },
         { source: '/privacy-policy', destination: '/privacy-policy.html' },
         { source: '/sponsorship', destination: '/sponsorship.html' },
+        { source: '/apex-league-landing', destination: '/apex-league-landing.html' },
       ],
     }
   },
