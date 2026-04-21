@@ -743,53 +743,6 @@
       margin-top: 2px;
     }
 
-    /* ==================== BRANDS / SOCIAL PROOF ==================== */
-    .brands {
-      padding: 60px 24px;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brands-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .brands-label {
-      font-size: 12px;
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 32px;
-    }
-
-    .brands-stats {
-      display: flex;
-      justify-content: center;
-      gap: 64px;
-      flex-wrap: wrap;
-    }
-
-    .brand-stat {
-      text-align: center;
-    }
-
-    .brand-stat-value {
-      font-size: 48px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      background: linear-gradient(180deg, var(--text-1), var(--text-2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .brand-stat-label {
-      font-size: 14px;
-      color: var(--text-3);
-      margin-top: 4px;
-    }
-
     /* ==================== FEATURES ==================== */
     .features {
       padding: 120px 24px;
@@ -924,10 +877,11 @@
 
     .leagues-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      max-width: 960px;
+      max-width: 1200px;
       margin: 0 auto;
+      align-items: stretch;
     }
 
     .league-cta {
@@ -989,6 +943,8 @@
       position: relative;
       overflow: hidden;
       transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     .league-card:hover {
@@ -1381,7 +1337,7 @@
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 1024px) {
       .features-grid { grid-template-columns: repeat(2, 1fr); }
-      .leagues-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+      .leagues-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
       .steps { flex-direction: column; gap: 48px; }
       .step::after { display: none; }
     }
@@ -1390,6 +1346,7 @@
       .nav-menu { display: none; }
       .hero { padding: 100px 20px 60px; }
       .features-grid { grid-template-columns: 1fr; }
+      .leagues-grid { grid-template-columns: 1fr; max-width: 100%; }
       .footer-top { flex-direction: column; gap: 48px; }
       .footer-links { flex-wrap: wrap; gap: 40px; }
       .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
@@ -1574,10 +1531,10 @@
     <div class="leagues-inner">
       <div class="section-header">
         <span class="section-tag">Season 1 · April 18 – July 4, 2026</span>
-        <h2 class="section-title">Two ligas.<br>One padel ecosystem.</h2>
+        <h2 class="section-title">Three ways to compete.<br>One ranking system.</h2>
         <p class="section-subtitle">
-          Liga 1 is the top tier — 12 venues competing head-to-head for the title.
-          Liga 2 is where everyone else earns their place.
+          Whether you play Liga 1, Liga 2, or a PBPI-certified tournament — every
+          match counts toward your RNKD ranking. Pick the path that fits you.
         </p>
       </div>
 
@@ -1639,30 +1596,34 @@
             Register for Liga 2 →
           </a>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Stats / Social Proof -->
-  <section class="brands">
-    <div class="brands-inner">
-      <p class="brands-label">Trusted by padel players across Indonesia</p>
-      <div class="brands-stats">
-        <div class="brand-stat">
-          <div class="brand-stat-value">5,000+</div>
-          <div class="brand-stat-label">Active Players</div>
-        </div>
-        <div class="brand-stat">
-          <div class="brand-stat-value">50,000+</div>
-          <div class="brand-stat-label">Matches Recorded</div>
-        </div>
-        <div class="brand-stat">
-          <div class="brand-stat-value">34</div>
-          <div class="brand-stat-label">Provinces</div>
-        </div>
-        <div class="brand-stat">
-          <div class="brand-stat-value">100+</div>
-          <div class="brand-stat-label">Clubs</div>
+        <div class="league-card liga3">
+          <div class="league-glow"></div>
+          <span class="league-badge">PBPI Certified</span>
+          <h3>Tournaments</h3>
+          <p>Play in any PBPI-certified tournament across Indonesia. Your results integrate directly into your RNKD ranking — no separate tracking needed.</p>
+          <div class="league-meta">
+            <span class="league-meta-chip">🏅 PBPI certified</span>
+            <span class="league-meta-chip">🇮🇩 Nationwide</span>
+            <span class="league-meta-chip">🔗 Auto-synced</span>
+          </div>
+          <div class="league-features">
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              Official PBPI tournament results count
+            </div>
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              No extra registration in RNKD needed
+            </div>
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              Grading updates after every event
+            </div>
+          </div>
+          <div class="league-info-note">
+            If a tournament is PBPI-certified, your performance is automatically graded and reflected in your ranking.
+          </div>
         </div>
       </div>
     </div>
@@ -1682,14 +1643,19 @@
 
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Smart MMR System</h3>
-          <p>Our ELO-based algorithm accurately measures your skill. Win against stronger players to climb faster.</p>
+          <div class="feature-icon">🏁</div>
+          <h3>Liga 1 &amp; Liga 2 Klasemen</h3>
+          <p>Follow live standings for both ligas. Every match played feeds directly into the season table.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Instant Recording</h3>
-          <p>Record matches in seconds. Our intuitive UI makes tracking games effortless.</p>
+          <div class="feature-icon">🤝</div>
+          <h3>PBPI Tournament Sync</h3>
+          <p>Results from PBPI-certified tournaments integrate automatically. Play once, rank everywhere.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎖️</div>
+          <h3>PBPI Grading</h3>
+          <p>Official PBPI grades are reflected in your RNKD profile. A single source of truth for your level.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🏆</div>
@@ -1698,18 +1664,13 @@
         </div>
         <div class="feature-card">
           <div class="feature-icon">👥</div>
-          <h3>Find Players</h3>
-          <p>Connect with padel players in your area. Find partners and grow your network.</p>
+          <h3>Find Players &amp; RNKD Games</h3>
+          <p>Connect with players near you, discover open matches, and join games that fit your level.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">📈</div>
-          <h3>Deep Statistics</h3>
-          <p>Track win rates, performance trends, and head-to-head records over time.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌙</div>
-          <h3>Dark Mode</h3>
-          <p>Beautiful dark interface that's easy on the eyes. Works offline too.</p>
+          <h3>Match History &amp; Stats</h3>
+          <p>Track every result, win rate, and head-to-head record. Your padel journey in one place.</p>
         </div>
       </div>
     </div>
