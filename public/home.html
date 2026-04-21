@@ -924,8 +924,61 @@
 
     .leagues-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .league-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 14px 24px;
+      background: #D2F802;
+      color: #000;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .league-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -8px rgba(210, 248, 2, 0.5);
+    }
+
+    .league-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .league-meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-2);
+    }
+
+    .league-info-note {
+      margin-top: 24px;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border-left: 3px solid rgba(210, 248, 2, 0.5);
+      border-radius: 8px;
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.5;
     }
 
     .league-card {
@@ -1352,13 +1405,10 @@
   </div>
 
   <style>
-    nav { top: 38px !important; }
     .preview-banner {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1001;
+      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1443,12 +1493,12 @@
         </svg>
       </a>
       <div class="nav-menu">
-        <a href="#features">Features</a>
-        <a href="#leagues">Leagues</a>
+        <a href="#leagues">Ligas</a>
+        <a href="#features">The App</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#faq">FAQ</a>
       </div>
-      <a href="#download" class="nav-cta">Download</a>
+      <a href="#leagues" class="nav-cta">Register Liga 2</a>
     </div>
   </nav>
 
@@ -1519,6 +1569,80 @@
     </div>
   </section>
 
+  <!-- Leagues -->
+  <section class="leagues" id="leagues">
+    <div class="leagues-inner">
+      <div class="section-header">
+        <span class="section-tag">Season 1 · April 18 – July 4, 2026</span>
+        <h2 class="section-title">Two ligas.<br>One padel ecosystem.</h2>
+        <p class="section-subtitle">
+          Liga 1 is the top tier — 12 venues competing head-to-head for the title.
+          Liga 2 is where everyone else earns their place.
+        </p>
+      </div>
+
+      <div class="leagues-grid">
+        <div class="league-card liga1">
+          <div class="league-glow"></div>
+          <span class="league-badge">Liga 1</span>
+          <h3>Intervenue Championship</h3>
+          <p>The elite tier. 12 partner venues go head-to-head over the season. Every match matters — the bottom 4 venues face relegation.</p>
+          <div class="league-meta">
+            <span class="league-meta-chip">🏟️ 12 venues</span>
+            <span class="league-meta-chip">🔒 Closed registration</span>
+            <span class="league-meta-chip">⬇️ Bottom 4 relegated</span>
+          </div>
+          <div class="league-features">
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              Venues compete as teams, not individuals
+            </div>
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              Full season format with standings
+            </div>
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              Promotion/relegation keeps it competitive
+            </div>
+          </div>
+          <div class="league-info-note">
+            Liga 1 is invite-only for partner venues. Want your venue to join Season 2? Get in touch through Liga 2 first.
+          </div>
+        </div>
+
+        <div class="league-card liga2">
+          <div class="league-glow"></div>
+          <span class="league-badge">Liga 2 · Open Now</span>
+          <h3>Intercommunity Challenge</h3>
+          <p>Open to anyone. Challenge-based format — you pick the opponent, agree on time and place, and play. No fixed venue, no set schedule. Just padel.</p>
+          <div class="league-meta">
+            <span class="league-meta-chip">🌐 Open registration</span>
+            <span class="league-meta-chip">⚔️ Challenge format</span>
+            <span class="league-meta-chip">📅 Apr 18 – Jul 4</span>
+          </div>
+          <div class="league-features">
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              Register individually or as a community
+            </div>
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              Challenge anyone, anywhere, anytime
+            </div>
+            <div class="league-feature">
+              <span class="league-feature-icon">✓</span>
+              Self-scheduled — play on your terms
+            </div>
+          </div>
+          <a href="https://wa.me/LIGA2_WHATSAPP?text=Halo%2C%20saya%20mau%20daftar%20Liga%202%20Season%201" class="league-cta" target="_blank" rel="noopener">
+            Register for Liga 2 →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Stats / Social Proof -->
   <section class="brands">
     <div class="brands-inner">
@@ -1548,11 +1672,11 @@
   <section class="features" id="features">
     <div class="features-inner">
       <div class="section-header">
-        <span class="section-tag">Features</span>
-        <h2 class="section-title">Everything you need to<br>dominate the court</h2>
+        <span class="section-tag">Coming May 2026</span>
+        <h2 class="section-title">What's coming<br>in the RNKD app</h2>
         <p class="section-subtitle">
-          From tracking your matches to climbing the leaderboards, RNKD gives you
-          the competitive edge you need.
+          The Liga is just the start. When RNKD launches, every match you play —
+          in Liga 1, Liga 2, or just for fun — feeds into one unified ranking system.
         </p>
       </div>
 
@@ -1586,84 +1710,6 @@
           <div class="feature-icon">🌙</div>
           <h3>Dark Mode</h3>
           <p>Beautiful dark interface that's easy on the eyes. Works offline too.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Leagues -->
-  <section class="leagues" id="leagues">
-    <div class="leagues-inner">
-      <div class="section-header">
-        <span class="section-tag">Compete</span>
-        <h2 class="section-title">Three tiers of competition</h2>
-        <p class="section-subtitle">
-          Whether you're casual or competitive, there's a league for your level.
-        </p>
-      </div>
-
-      <div class="leagues-grid">
-        <div class="league-card liga1">
-          <div class="league-glow"></div>
-          <span class="league-badge">Liga 1</span>
-          <h3>Club League</h3>
-          <p>Join exclusive clubs with organized tournaments and fixed schedules. The highest tier of competitive play.</p>
-          <div class="league-features">
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Scheduled tournaments
-            </div>
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Club management tools
-            </div>
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Premium rankings
-            </div>
-          </div>
-        </div>
-
-        <div class="league-card liga2">
-          <div class="league-glow"></div>
-          <span class="league-badge">Liga 2</span>
-          <h3>Community League</h3>
-          <p>Create or join player communities for casual competitive play. Perfect for friend groups.</p>
-          <div class="league-features">
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Create your community
-            </div>
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Flexible scheduling
-            </div>
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Community rankings
-            </div>
-          </div>
-        </div>
-
-        <div class="league-card liga3">
-          <div class="league-glow"></div>
-          <span class="league-badge">Liga 3</span>
-          <h3>Regional Pickup</h3>
-          <p>Compete in your province's open rankings. Play anyone, anytime, anywhere.</p>
-          <div class="league-features">
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Open to everyone
-            </div>
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Play anytime
-            </div>
-            <div class="league-feature">
-              <span class="league-feature-icon">✓</span>
-              Regional rankings
-            </div>
-          </div>
         </div>
       </div>
     </div>
