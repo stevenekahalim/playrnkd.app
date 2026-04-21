@@ -2,6 +2,7 @@
     "cleanUrls": true,
     "trailingSlash": false,
     "rewrites": [
+              { "source": "/liga2", "destination": "/apex-league-landing" },
           { "source": "/", "destination": "/home" },
           { "source": "/match/:id", "destination": "/match" },
           { "source": "/player/:id", "destination": "/match" },
