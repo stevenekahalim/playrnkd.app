@@ -951,54 +951,219 @@
     }
 
     .context-ladder {
-      background: var(--bg-3);
-      border-radius: 20px;
-      padding: 24px;
-      text-align: center;
+      position: relative;
+      padding: 28px 24px;
+      border-radius: 24px;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 159, 10, 0.08), transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(210, 248, 2, 0.08), transparent 60%),
+        var(--bg-3);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .context-ladder::before,
+    .context-ladder::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Promotion stream (left rail, volt, going up) */
+    .context-ladder::before {
+      top: 10%;
+      bottom: 10%;
+      margin-left: -32px;
+      background: linear-gradient(180deg, transparent, var(--volt) 20%, var(--volt) 80%, transparent);
+      opacity: 0.5;
+      box-shadow: 0 0 14px var(--volt-glow);
+      animation: streamUp 2.4s linear infinite;
+    }
+
+    /* Relegation stream (right rail, pink, going down) */
+    .context-ladder::after {
+      top: 10%;
+      bottom: 10%;
+      margin-left: 30px;
+      background: linear-gradient(180deg, transparent, var(--pink) 20%, var(--pink) 80%, transparent);
+      opacity: 0.35;
+      box-shadow: 0 0 14px rgba(255, 55, 95, 0.4);
+      animation: streamDown 2.8s linear infinite;
+    }
+
+    @keyframes streamUp {
+      0% { background-position: 0 100%; }
+      100% { background-position: 0 -100%; }
+    }
+    @keyframes streamDown {
+      0% { background-position: 0 -100%; }
+      100% { background-position: 0 100%; }
     }
 
     .ladder-tier {
-      padding: 14px 16px;
-      border-radius: 14px;
+      position: relative;
+      z-index: 2;
+      padding: 22px 20px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .ladder-tier .tier-icon {
+      font-size: 26px;
+      line-height: 1;
+      margin-bottom: 4px;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    }
+
+    .ladder-tier .tier-name {
+      font-family: 'Russo One', sans-serif;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+
+    .ladder-tier .tier-meta {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
       font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.02em;
+      opacity: 0.75;
     }
 
     .ladder-tier.top {
-      background: rgba(255, 159, 10, 0.15);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(255, 159, 10, 0.25), transparent 70%),
+        linear-gradient(135deg, rgba(255, 159, 10, 0.18), rgba(255, 159, 10, 0.05));
+      border: 1px solid rgba(255, 159, 10, 0.45);
       color: var(--orange);
-      border: 1px solid rgba(255, 159, 10, 0.3);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 8px 32px -12px rgba(255, 159, 10, 0.5),
+        0 0 0 1px rgba(255, 159, 10, 0.1);
+    }
+
+    .ladder-tier.top::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+      animation: tierShine 4s ease-in-out infinite;
     }
 
     .ladder-tier.bottom {
-      background: rgba(210, 248, 2, 0.12);
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(210, 248, 2, 0.22), transparent 70%),
+        linear-gradient(135deg, rgba(210, 248, 2, 0.14), rgba(210, 248, 2, 0.04));
+      border: 1px solid rgba(210, 248, 2, 0.45);
       color: var(--volt);
-      border: 1px solid rgba(210, 248, 2, 0.3);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 8px 32px -12px rgba(210, 248, 2, 0.5),
+        0 0 0 1px rgba(210, 248, 2, 0.12);
+    }
+
+    .ladder-tier.bottom::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(210, 248, 2, 0.08), transparent);
+      animation: tierShine 4s ease-in-out infinite reverse;
+    }
+
+    @keyframes tierShine {
+      0%, 100% { transform: translateX(-100%); }
+      50% { transform: translateX(100%); }
     }
 
     .ladder-arrows {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 32px;
-      padding: 16px 0;
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 20px 4px;
     }
 
     .ladder-arrow {
+      position: relative;
       text-align: center;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 700;
+      padding: 14px 12px 12px;
+      border-radius: 14px;
+      background: rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(6px);
+      border: 1px solid var(--border);
+      overflow: hidden;
     }
 
-    .ladder-arrow.down { color: var(--pink); }
-    .ladder-arrow.up { color: var(--mint); }
+    .ladder-arrow.down {
+      border-color: rgba(255, 55, 95, 0.35);
+    }
 
-    .ladder-arrow-icon {
+    .ladder-arrow.up {
+      border-color: rgba(210, 248, 2, 0.45);
+      box-shadow: 0 0 0 1px rgba(210, 248, 2, 0.1), 0 6px 20px -8px rgba(210, 248, 2, 0.35);
+    }
+
+    .ladder-arrow-head {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .ladder-arrow.down .ladder-arrow-head {
+      background: rgba(255, 55, 95, 0.15);
+      color: var(--pink);
+      border: 1px solid rgba(255, 55, 95, 0.4);
+    }
+
+    .ladder-arrow.up .ladder-arrow-head {
+      background: rgba(210, 248, 2, 0.15);
+      color: var(--volt);
+      border: 1px solid rgba(210, 248, 2, 0.5);
+      box-shadow: 0 0 18px var(--volt-glow);
+      animation: arrowPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes arrowPulse {
+      0%, 100% { box-shadow: 0 0 18px var(--volt-glow); }
+      50% { box-shadow: 0 0 28px var(--volt-glow), 0 0 0 6px rgba(210, 248, 2, 0.08); }
+    }
+
+    .ladder-arrow-count {
+      font-family: 'Russo One', sans-serif;
       font-size: 22px;
+      letter-spacing: 0.04em;
+      line-height: 1;
       margin-bottom: 4px;
+    }
+
+    .ladder-arrow.down .ladder-arrow-count { color: var(--pink); }
+    .ladder-arrow.up .ladder-arrow-count { color: var(--volt); }
+
+    .ladder-arrow-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-weight: 800;
+      color: var(--text-2);
+      line-height: 1.3;
     }
 
     .context-closer {
@@ -1624,12 +1789,12 @@
   <section class="stats-strip">
     <div class="stats-inner">
       <div class="stat-block">
-        <div class="stat-value">Open</div>
-        <div class="stat-label">To all communities</div>
+        <div class="stat-value">3 vs 3</div>
+        <div class="stat-label">Pairs per match day</div>
       </div>
       <div class="stat-block">
-        <div class="stat-value">3v3</div>
-        <div class="stat-label">6–12 per team</div>
+        <div class="stat-value">6–12</div>
+        <div class="stat-label">Players per team</div>
       </div>
       <div class="stat-block">
         <div class="stat-value">Amateurs</div>
@@ -1670,18 +1835,30 @@
           </p>
         </div>
         <div class="context-ladder">
-          <div class="ladder-tier top">Liga 1 · 12 Venue Teams</div>
+          <div class="ladder-tier top">
+            <div class="tier-icon">🏆</div>
+            <div class="tier-name">LIGA 1</div>
+            <div class="tier-meta">12 Venue Teams</div>
+          </div>
+
           <div class="ladder-arrows">
             <div class="ladder-arrow down">
-              <div class="ladder-arrow-icon">↓</div>
-              Bottom 4<br>Relegated
+              <div class="ladder-arrow-head">↓</div>
+              <div class="ladder-arrow-count">4</div>
+              <div class="ladder-arrow-label">Relegated</div>
             </div>
             <div class="ladder-arrow up">
-              <div class="ladder-arrow-icon">↑</div>
-              Top 4<br>Promoted
+              <div class="ladder-arrow-head">↑</div>
+              <div class="ladder-arrow-count">4</div>
+              <div class="ladder-arrow-label">Promoted</div>
             </div>
           </div>
-          <div class="ladder-tier bottom">Liga 2 · 30+ Communities</div>
+
+          <div class="ladder-tier bottom">
+            <div class="tier-icon">⚡</div>
+            <div class="tier-name">LIGA 2</div>
+            <div class="tier-meta">30+ Communities</div>
+          </div>
         </div>
       </div>
 
@@ -1770,9 +1947,9 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Format</span>
-        <h2 class="section-title">3v3 pairs.<br>Full rotation. <span style="color: var(--volt);">Nine matches.</span></h2>
+        <h2 class="section-title">3 pairs vs 3 pairs.<br>Fixed team round robin.<br><span style="color: var(--volt);">Race to 6. No deuce.</span></h2>
         <p class="section-subtitle">
-          Every challenge = 3 pairs from your team vs 3 pairs from theirs. Everyone plays everyone.
+          Every match day = 3 pairs from your team vs 3 pairs from theirs. Everyone plays everyone.
         </p>
       </div>
 
