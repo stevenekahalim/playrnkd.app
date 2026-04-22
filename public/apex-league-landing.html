@@ -96,7 +96,8 @@
       letter-spacing: -0.02em;
     }
 
-    /* ==================== GLOBAL AMBIENT BACKGROUND ==================== */
+    /* ==================== GLOBAL AMBIENT BACKGROUND — VERSION 2 (sporty) ==================== */
+    /* To rollback to V1: revert this commit */
     .ambient-bg {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -109,9 +110,9 @@
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      opacity: 0.025;
+      opacity: 0.03;
       mix-blend-mode: overlay;
-      animation: noiseShift 0.5s steps(5) infinite;
+      animation: noiseShift 0.4s steps(6) infinite;
     }
 
     @keyframes noiseShift {
@@ -125,20 +126,19 @@
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image:
-        linear-gradient(rgba(124, 58, 237, 0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124, 58, 237, 0.025) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
-      animation: gridPulse 15s ease-in-out infinite;
+        linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 20%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 20%, transparent 70%);
+      animation: gridPulse 10s ease-in-out infinite;
     }
 
     @keyframes gridPulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.9; }
     }
 
-    /* Starfield — tiny white + violet specks, Instagram-style */
     .starfield {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -157,39 +157,70 @@
         radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.6), transparent 50%);
       background-size: 600px 600px;
       opacity: 0.5;
-      animation: starTwinkle 8s ease-in-out infinite;
+      animation: starTwinkle 6s ease-in-out infinite;
     }
 
     @keyframes starTwinkle {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.6; }
+      0%, 100% { opacity: 0.35; }
+      50% { opacity: 0.65; }
     }
 
-    /* Horizontal motion-blur streak — Instagram ball-trail signature */
     .light-streak {
       position: absolute;
-      top: 35%;
+      top: 30%;
       left: -10%;
       right: -10%;
-      height: 180px;
+      height: 200px;
       background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(255, 255, 255, 0.04) 20%,
-        rgba(233, 197, 255, 0.12) 45%,
-        rgba(255, 255, 255, 0.18) 50%,
-        rgba(233, 197, 255, 0.12) 55%,
-        rgba(255, 255, 255, 0.04) 80%,
+        rgba(255, 255, 255, 0.03) 15%,
+        rgba(139, 92, 246, 0.14) 40%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(99, 102, 241, 0.14) 60%,
+        rgba(255, 255, 255, 0.03) 85%,
         transparent 100%
       );
-      filter: blur(24px);
+      filter: blur(20px);
       pointer-events: none;
       mix-blend-mode: screen;
-      opacity: 0.55;
-      transform: rotate(-2deg);
+      opacity: 0.5;
+      transform: rotate(-3deg);
+      animation: streakPulse 8s ease-in-out infinite;
     }
 
-    /* Diagonal lens flare — Instagram hero signature */
+    @keyframes streakPulse {
+      0%, 100% { opacity: 0.4; transform: rotate(-3deg) translateX(-2%); }
+      50% { opacity: 0.6; transform: rotate(-3deg) translateX(2%); }
+    }
+
+    .light-streak-2 {
+      position: absolute;
+      top: 65%;
+      left: -10%;
+      right: -10%;
+      height: 120px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(99, 102, 241, 0.08) 30%,
+        rgba(139, 92, 246, 0.12) 50%,
+        rgba(99, 102, 241, 0.08) 70%,
+        transparent 100%
+      );
+      filter: blur(28px);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.35;
+      transform: rotate(2deg);
+      animation: streakPulse2 12s ease-in-out infinite;
+    }
+
+    @keyframes streakPulse2 {
+      0%, 100% { opacity: 0.25; transform: rotate(2deg) translateX(3%); }
+      50% { opacity: 0.4; transform: rotate(2deg) translateX(-3%); }
+    }
+
     .lens-flare {
       position: absolute;
       top: -10%;
@@ -208,55 +239,56 @@
       );
       pointer-events: none;
       mix-blend-mode: screen;
-      animation: flareShift 18s ease-in-out infinite;
+      animation: flareShift 14s ease-in-out infinite;
     }
 
     @keyframes flareShift {
-      0%, 100% { transform: translateX(-5%) rotate(0deg); opacity: 0.4; }
+      0%, 100% { transform: translateX(-5%) rotate(0deg); opacity: 0.35; }
       50% { transform: translateX(5%) rotate(2deg); opacity: 0.55; }
     }
 
     .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(110px);
-      opacity: 0.28;
+      filter: blur(100px);
+      opacity: 0.32;
       animation: orbFloat 20s ease-in-out infinite;
     }
 
     .orb-1 {
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.28) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.32) 0%, transparent 70%);
       top: -15%; left: -10%;
-      animation-duration: 25s;
+      animation-duration: 18s;
     }
     .orb-2 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(124, 58, 237, 0.22) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.26) 0%, transparent 70%);
       top: 15%; right: -15%;
       animation-delay: -5s;
-      animation-duration: 30s;
+      animation-duration: 22s;
     }
     .orb-3 {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.24) 0%, transparent 70%);
       bottom: 15%; left: 5%;
       animation-delay: -10s;
-      animation-duration: 22s;
+      animation-duration: 16s;
     }
     .orb-4 {
       width: 450px; height: 450px;
-      background: radial-gradient(circle, rgba(167, 139, 250, 0.18) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, transparent 70%);
       bottom: -10%; right: 15%;
       animation-delay: -15s;
-      animation-duration: 28s;
+      animation-duration: 20s;
     }
 
     @keyframes orbFloat {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      25% { transform: translate(30px, -40px) scale(1.05); }
-      50% { transform: translate(-20px, 20px) scale(0.95); }
-      75% { transform: translate(40px, 30px) scale(1.02); }
+      20% { transform: translate(40px, -50px) scale(1.06); }
+      40% { transform: translate(-30px, 30px) scale(0.94); }
+      60% { transform: translate(50px, 20px) scale(1.04); }
+      80% { transform: translate(-20px, -30px) scale(0.97); }
     }
 
     .aurora {
@@ -266,17 +298,19 @@
       background:
         linear-gradient(135deg,
           transparent 0%,
-          rgba(139, 92, 246, 0.035) 25%,
+          rgba(139, 92, 246, 0.04) 20%,
+          rgba(99, 102, 241, 0.03) 40%,
           transparent 50%,
-          rgba(124, 58, 237, 0.025) 75%,
+          rgba(124, 58, 237, 0.035) 70%,
           transparent 100%);
       background-size: 400% 400%;
-      animation: auroraFlow 20s ease infinite;
+      animation: auroraFlow 15s ease infinite;
     }
 
     @keyframes auroraFlow {
       0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      33% { background-position: 100% 0%; }
+      66% { background-position: 50% 100%; }
     }
 
     .vignette {
@@ -284,6 +318,23 @@
       top: 0; left: 0; right: 0; bottom: 0;
       background: radial-gradient(ellipse at center, transparent 30%, rgba(5, 2, 31, 0.75) 100%);
       pointer-events: none;
+    }
+
+    /* Dark overlay for mid-page sections (above animation, below content) */
+    .section-darken {
+      position: relative;
+    }
+    .section-darken::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(3, 1, 15, 0.45);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .section-darken > * {
+      position: relative;
+      z-index: 1;
     }
 
     /* Z-index raise */
@@ -2006,6 +2057,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
     <div class="orb orb-4"></div>
     <div class="starfield"></div>
     <div class="light-streak"></div>
+    <div class="light-streak-2"></div>
     <div class="lens-flare"></div>
     <div class="grid-overlay"></div>
     <div class="noise-overlay"></div>
@@ -2079,7 +2131,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
   </section>
 
   <!-- Stats Strip -->
-  <section class="stats-strip">
+  <section class="stats-strip section-darken">
     <div class="stats-inner">
       <div class="stat-block">
         <div class="stat-value">3 vs 3</div>
@@ -2101,7 +2153,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
   </section>
 
   <!-- Section 1: The ladder (Liga 1 + Liga 2 explainer) -->
-  <section class="context">
+  <section class="context section-darken">
     <div class="context-inner">
       <div class="section-header">
         <span class="section-tag">The ladder</span>
@@ -2162,7 +2214,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
   </section>
 
   <!-- Section 2: What is Liga 2 (3 pillars) -->
-  <section class="what" id="what">
+  <section class="what section-darken" id="what">
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">What is Liga 2</span>
@@ -2193,7 +2245,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
   </section>
 
   <!-- Section 3: Prizes — Liga 1 vs Liga 2 -->
-  <section class="prizes" id="prizes">
+  <section class="prizes section-darken" id="prizes">
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Prizes</span>
@@ -2236,7 +2288,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
   </section>
 
   <!-- Section 4: Format — Matchup grid + rules -->
-  <section class="format" id="format">
+  <section class="format section-darken" id="format">
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Format</span>
@@ -2328,7 +2380,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
   </section>
 
   <!-- Section 5: Challenge system (How it works) -->
-  <section class="how" id="how">
+  <section class="how section-darken" id="how">
     <div class="how-inner">
       <div class="section-header">
         <span class="section-tag">Challenge system</span>
@@ -2401,7 +2453,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
   </section>
 
   <!-- Section 6: Grand Finale -->
-  <section class="finale">
+  <section class="finale section-darken">
     <div class="finale-inner">
       <div class="finale-box">
         <h2>One day. Sixteen teams. <span class="accent">One Apex Cup.</span></h2>
@@ -2420,7 +2472,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
   </section>
 
   <!-- Section 7: Timeline -->
-  <section class="timeline" id="timeline">
+  <section class="timeline section-darken" id="timeline">
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Season 1</span>
