@@ -1885,18 +1885,12 @@
     }
 
     .sponsor-logo {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-2);
-      opacity: 0.55;
+      height: 40px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.5));
+      opacity: 0.75;
       transition: opacity 0.2s ease;
       padding: 8px 14px;
-      border: 1px solid rgba(196, 165, 255, 0.15);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.02);
     }
 
     .sponsor-logo:hover { opacity: 1; }
@@ -1929,7 +1923,7 @@
       .spec-card, .pillar-card { padding: 32px 24px; }
       .context-box { padding: 32px 20px; }
       .sponsor-logos { gap: 16px 20px; }
-      .sponsor-logo { font-size: 12px; padding: 6px 10px; }
+      .sponsor-logo { height: 32px; padding: 6px 10px; }
       .wa-fab {
         bottom: 20px;
         right: 20px;
@@ -1973,15 +1967,12 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="APEX League">
-        <span class="apex-wordmark">APEX</span>
+      <a href="/" class="nav-logo" aria-label="APEX League" style="display:flex;align-items:center;gap:12px;">
+        <img src="logos/APEX LEAGUE.png" alt="APEX League" style="height:36px;">
+        <img src="logos/pbpi JATIM.png" alt="PBPI Jatim" style="height:36px;">
       </a>
-      <div class="apex-lockup" aria-label="PBPI Jatim × APEX League × Bank Jatim">
-        <span class="apex-lockup-label">PBPI Jatim</span>
-        <span class="apex-lockup-sep"></span>
+      <div class="apex-lockup" aria-label="Official League">
         <span class="apex-lockup-label">Official League</span>
-        <span class="apex-lockup-sep"></span>
-        <span class="apex-lockup-label">Bank Jatim</span>
       </div>
       <div class="nav-menu">
         <a href="#what">What is Liga 2</a>
@@ -2432,13 +2423,13 @@
     <div class="sponsor-inner">
       <div class="sponsor-label">Supported by</div>
       <div class="sponsor-logos">
-        <span class="sponsor-logo">Bank Jatim</span>
-        <span class="sponsor-logo">PBPI Jatim</span>
-        <span class="sponsor-logo">HAKA Auto</span>
-        <span class="sponsor-logo">Cleo</span>
-        <span class="sponsor-logo">Isoplus</span>
-        <span class="sponsor-logo">Cardea</span>
-        <span class="sponsor-logo">Grab</span>
+        <img class="sponsor-logo" src="logos/bank jatim.png" alt="Bank Jatim">
+        <img class="sponsor-logo" src="logos/pbpi JATIM.png" alt="PBPI Jatim">
+        <img class="sponsor-logo" src="logos/HAKA AUTO.png" alt="HAKA Auto">
+        <img class="sponsor-logo" src="logos/cleo.png" alt="Cleo">
+        <img class="sponsor-logo" src="logos/Isoplus.png" alt="Isoplus">
+        <img class="sponsor-logo" src="logos/cardea.png" alt="Cardea">
+        <img class="sponsor-logo" src="logos/grab.png" alt="Grab">
       </div>
     </div>
   </section>
@@ -2448,8 +2439,8 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <span class="apex-wordmark" style="font-size: 36px;">APEX</span>
-          <p>A League That Leads. The inter-community padel league — Liga 2 Season 1 kicks off April 18, 2026. Powered by RNKD.</p>
+          <img src="logos/APEX LEAGUE.png" alt="APEX League" style="height:36px;">
+          <p>A League That Leads. The inter-community padel league — Liga 2 Season 1 kicks off April 18, 2026. Powered by <img src="logos/RNKD.png" alt="RNKD" style="height:18px;vertical-align:middle;display:inline;">.</p>
         </div>
 
         <div class="footer-links">
