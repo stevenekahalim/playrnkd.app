@@ -49,12 +49,12 @@
       --wa-green-dark: #1EBE5D;
 
       /* Blue-purple background graduation — zero black */
-      --bg-0: #0B0838;               /* darkest (page base) */
-      --bg-1: #14105A;               /* section tint */
-      --bg-2: #1D1680;               /* card surface */
-      --bg-3: #2A1F9E;               /* elevated */
-      --bg-4: #372BB8;               /* popover */
-      --bg-5: #4636CC;               /* high elevation */
+      --bg-0: #05021F;               /* darkest (page base) */
+      --bg-1: #0B0838;               /* section tint */
+      --bg-2: #14105A;               /* card surface */
+      --bg-3: #1D1680;               /* elevated */
+      --bg-4: #2A1F9E;               /* popover */
+      --bg-5: #372BB8;               /* high elevation */
 
       --text-1: #FFFFFF;
       --text-2: #C4BFF2;             /* violet-tinted muted */
@@ -75,9 +75,9 @@
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background:
-        radial-gradient(ellipse 120% 80% at 50% 0%, var(--apex-royal) 0%, transparent 60%),
-        radial-gradient(ellipse 100% 70% at 50% 100%, var(--apex-blue) 0%, transparent 55%),
-        linear-gradient(180deg, var(--apex-deep) 0%, #0B0838 50%, var(--apex-deep) 100%);
+        radial-gradient(ellipse 120% 80% at 50% 0%, rgba(74, 60, 219, 0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 100% 70% at 50% 100%, rgba(42, 31, 158, 0.4) 0%, transparent 55%),
+        linear-gradient(180deg, #05021F 0%, #08052B 50%, #05021F 100%);
       background-attachment: fixed;
       color: var(--text-1);
       line-height: 1.6;
@@ -152,13 +152,13 @@
         radial-gradient(1px 1px at 48% 90%, rgba(255, 255, 255, 0.75), transparent 50%),
         radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.6), transparent 50%);
       background-size: 600px 600px;
-      opacity: 0.85;
+      opacity: 0.5;
       animation: starTwinkle 8s ease-in-out infinite;
     }
 
     @keyframes starTwinkle {
-      0%, 100% { opacity: 0.65; }
-      50% { opacity: 1; }
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.6; }
     }
 
     /* Diagonal lens flare — Instagram hero signature */
@@ -171,11 +171,11 @@
       background: linear-gradient(
         115deg,
         transparent 35%,
-        rgba(232, 121, 249, 0.08) 45%,
-        rgba(196, 75, 255, 0.18) 49%,
-        rgba(255, 255, 255, 0.22) 50%,
-        rgba(139, 92, 246, 0.18) 51%,
-        rgba(139, 92, 246, 0.06) 55%,
+        rgba(232, 121, 249, 0.04) 45%,
+        rgba(196, 75, 255, 0.08) 49%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(139, 92, 246, 0.08) 51%,
+        rgba(139, 92, 246, 0.03) 55%,
         transparent 65%
       );
       pointer-events: none;
@@ -184,41 +184,41 @@
     }
 
     @keyframes flareShift {
-      0%, 100% { transform: translateX(-5%) rotate(0deg); opacity: 0.8; }
-      50% { transform: translateX(5%) rotate(2deg); opacity: 1; }
+      0%, 100% { transform: translateX(-5%) rotate(0deg); opacity: 0.4; }
+      50% { transform: translateX(5%) rotate(2deg); opacity: 0.55; }
     }
 
     .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.55;
+      filter: blur(110px);
+      opacity: 0.28;
       animation: orbFloat 20s ease-in-out infinite;
     }
 
     .orb-1 {
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.55) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.28) 0%, transparent 70%);
       top: -15%; left: -10%;
       animation-duration: 25s;
     }
     .orb-2 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(196, 75, 255, 0.45) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(196, 75, 255, 0.22) 0%, transparent 70%);
       top: 15%; right: -15%;
       animation-delay: -5s;
       animation-duration: 30s;
     }
     .orb-3 {
       width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
       bottom: 15%; left: 5%;
       animation-delay: -10s;
       animation-duration: 22s;
     }
     .orb-4 {
       width: 450px; height: 450px;
-      background: radial-gradient(circle, rgba(232, 121, 249, 0.35) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(232, 121, 249, 0.18) 0%, transparent 70%);
       bottom: -10%; right: 15%;
       animation-delay: -15s;
       animation-duration: 28s;
@@ -238,9 +238,9 @@
       background:
         linear-gradient(135deg,
           transparent 0%,
-          rgba(139, 92, 246, 0.08) 25%,
+          rgba(139, 92, 246, 0.035) 25%,
           transparent 50%,
-          rgba(196, 75, 255, 0.06) 75%,
+          rgba(196, 75, 255, 0.025) 75%,
           transparent 100%);
       background-size: 400% 400%;
       animation: auroraFlow 20s ease infinite;
@@ -254,7 +254,7 @@
     .vignette {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at center, transparent 45%, rgba(11, 8, 56, 0.55) 100%);
+      background: radial-gradient(ellipse at center, transparent 30%, rgba(5, 2, 31, 0.75) 100%);
       pointer-events: none;
     }
 
