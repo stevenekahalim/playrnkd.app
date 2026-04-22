@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liga 2 · APEX Padel League Season 1 | RNKD</title>
-  <meta name="description" content="Daftar Liga 2 Season 1 — liga padel antar-komunitas pertama di Jawa Timur. Rp 2 juta per tim. Top 4 promosi ke Liga 1. Mulai 18 April 2026.">
-  <meta name="keywords" content="liga padel, apex league, liga 2, padel surabaya, padel jawa timur, komunitas padel, PBPI, RNKD">
+  <meta name="description" content="Liga 2 Season 1 — East Java's first inter-community padel league. Challenge format, no home court needed. Top 4 promoted to Liga 1. Starts April 18, 2026.">
+  <meta name="keywords" content="liga padel, apex league, liga 2, padel surabaya, padel jawa timur, community padel, PBPI, RNKD">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://playrnkd.app/liga2">
   <meta property="og:title" content="Liga 2 · APEX Padel League Season 1">
-  <meta property="og:description" content="Liga padel antar-komunitas. Rp 2jt per tim. Top 4 promosi ke Liga 1. Daftar sekarang via WhatsApp.">
+  <meta property="og:description" content="The inter-community padel league. Challenge anyone, anywhere, anytime. Top 4 promoted to Liga 1. Daftar via WhatsApp.">
   <meta property="og:image" content="https://rnkdpadel.com/og-image.png">
 
   <!-- Twitter -->
@@ -1001,6 +1001,311 @@
       margin-bottom: 4px;
     }
 
+    .context-closer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-1);
+    }
+
+    .context-closer .accent {
+      background: linear-gradient(135deg, var(--volt), var(--mint));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ==================== MATCHUP GRID (Format section) ==================== */
+    .matchup-wrap {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .matchup-card {
+      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .matchup-card h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--volt);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      margin-bottom: 20px;
+    }
+
+    .matchup-card .lead {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      color: var(--text-1);
+    }
+
+    .matchup-grid {
+      display: grid;
+      grid-template-columns: auto repeat(3, 1fr);
+      gap: 8px;
+      background: var(--bg-3);
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .matchup-grid .cell {
+      padding: 14px 8px;
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 10px;
+      color: var(--text-1);
+    }
+
+    .matchup-grid .cell.head {
+      background: transparent;
+      font-size: 12px;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      padding: 8px 4px;
+    }
+
+    .matchup-grid .cell.side {
+      background: transparent;
+      font-size: 14px;
+      color: var(--pink);
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .matchup-grid .cell.pair {
+      background: rgba(210, 248, 2, 0.08);
+      border: 1px solid rgba(210, 248, 2, 0.18);
+      color: var(--volt);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .matchup-legend {
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-3);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .matchup-result {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: var(--bg-3);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .matchup-result-team {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .matchup-result-team.win { color: var(--volt); }
+    .matchup-result-team.lose { color: var(--text-2); }
+
+    .matchup-result-score {
+      font-family: 'Russo One', sans-serif;
+      font-size: 28px;
+      color: var(--text-1);
+      letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .format-rules {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .format-rules .rule-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 15px;
+    }
+
+    .format-rules .rule-row:last-child {
+      border-bottom: none;
+    }
+
+    .format-rules .rule-label {
+      color: var(--text-3);
+      font-weight: 500;
+    }
+
+    .format-rules .rule-value {
+      color: var(--text-1);
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .format-rules .rule-value.volt { color: var(--volt); }
+
+    .format-footnote {
+      margin-top: 20px;
+      padding: 14px 18px;
+      background: rgba(255, 159, 10, 0.08);
+      border: 1px solid rgba(255, 159, 10, 0.2);
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--orange);
+      line-height: 1.6;
+    }
+
+    /* ==================== VS BLOCK (Liga 1 vs Liga 2) ==================== */
+    .vs-block {
+      margin-top: 56px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      overflow: hidden;
+    }
+
+    .vs-block h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 1.8px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .vs-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .vs-grid > div {
+      padding: 16px 12px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .vs-grid .vs-head {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-align: center;
+      padding: 20px 12px;
+    }
+
+    .vs-grid .vs-head.liga1 { color: var(--orange); }
+    .vs-grid .vs-head.liga2 { color: var(--volt); }
+
+    .vs-grid .vs-label {
+      color: var(--text-3);
+      font-weight: 600;
+    }
+
+    .vs-grid .vs-val {
+      text-align: center;
+      color: var(--text-1);
+      font-weight: 600;
+    }
+
+    .vs-grid .vs-val.dim { color: var(--text-3); }
+
+    /* ==================== FINALE BLOCK ==================== */
+    .finale {
+      padding: 120px 24px;
+      background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
+    }
+
+    .finale-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .finale-box {
+      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
+      border: 1px solid rgba(210, 248, 2, 0.25);
+      border-radius: 32px;
+      padding: 72px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .finale-box::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 560px;
+      height: 360px;
+      background: radial-gradient(ellipse, var(--volt-dim), transparent 70%);
+      pointer-events: none;
+    }
+
+    .finale-box h2 {
+      font-size: clamp(28px, 4.5vw, 44px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .finale-box h2 .accent {
+      background: linear-gradient(135deg, var(--volt), var(--mint));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .finale-box p {
+      font-size: 17px;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin: 0 auto 16px;
+      max-width: 580px;
+      position: relative;
+    }
+
+    .finale-meta {
+      margin-top: 32px;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text-3);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 10px 18px;
+      background: var(--bg-3);
+      border-radius: 100px;
+      position: relative;
+    }
+
     /* ==================== CTA (final) ==================== */
     .cta {
       padding: 120px 24px;
@@ -1210,6 +1515,9 @@
       .challenge-rules ul { grid-template-columns: 1fr; }
       .prize-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .context-box { grid-template-columns: 1fr; padding: 40px 32px; }
+      .matchup-wrap { grid-template-columns: 1fr; gap: 20px; }
+      .vs-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+      .finale-box { padding: 56px 32px; }
     }
 
     @media (max-width: 768px) {
@@ -1266,9 +1574,9 @@
         </svg>
       </a>
       <div class="nav-menu">
-        <a href="#what">Apa itu Liga 2</a>
+        <a href="#what">What is Liga 2</a>
         <a href="#format">Format</a>
-        <a href="#how">Cara Daftar</a>
+        <a href="#how">How to join</a>
         <a href="#timeline">Timeline</a>
       </div>
       <a href="https://api.whatsapp.com/send?phone=62811393989&text=Halo%2C%20saya%20mau%20daftar%20Liga%202%20Season%201" class="nav-cta" target="_blank" rel="noopener">
@@ -1282,18 +1590,18 @@
   <section class="hero">
     <div class="hero-content">
       <div class="hero-pill">
-        <span class="hero-pill-badge">Pendaftaran Dibuka</span>
-        Season 1 · Mulai 18 April 2026
+        <span class="hero-pill-badge">Registration Open</span>
+        Season 1 · Starts April 18, 2026
       </div>
 
       <h1 class="hero-title">
         <span class="line">Liga 2.</span>
-        <span class="line gradient">Liga kamu.</span>
+        <span class="line gradient">Your league.</span>
       </h1>
 
       <p class="hero-subtitle">
-        Liga padel antar-komunitas pertama di Jawa Timur. Tidak butuh venue sendiri —
-        tantang siapa saja, kapan saja. Top 4 promosi ke Liga 1.
+        The first inter-community padel league in East Java. No home venue needed.
+        Challenge anyone, anywhere, anytime. Top 4 promoted to Liga 1.
       </p>
 
       <div class="hero-actions">
@@ -1317,225 +1625,48 @@
     <div class="stats-inner">
       <div class="stat-block">
         <div class="stat-value">30+</div>
-        <div class="stat-label">Komunitas</div>
+        <div class="stat-label">Communities</div>
       </div>
       <div class="stat-block">
         <div class="stat-value">12</div>
-        <div class="stat-label">Minggu Season</div>
+        <div class="stat-label">Weeks</div>
       </div>
       <div class="stat-block">
         <div class="stat-value">Rp 2jt</div>
-        <div class="stat-label">Per Tim</div>
+        <div class="stat-label">Per team</div>
       </div>
       <div class="stat-block">
         <div class="stat-value">Top 4</div>
-        <div class="stat-label">Promosi ke Liga 1</div>
+        <div class="stat-label">Promoted to Liga 1</div>
       </div>
     </div>
   </section>
 
-  <!-- What (3 pillars) -->
-  <section class="what" id="what">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">Apa itu Liga 2</span>
-        <h2 class="section-title">Liga terbuka.<br>Jadwal fleksibel.</h2>
-        <p class="section-subtitle">
-          Liga 2 bukan liga kelas dua — ini pintu masuk ke level tertinggi padel Jawa Timur.
-        </p>
-      </div>
-
-      <div class="what-grid">
-        <div class="pillar-card">
-          <div class="pillar-icon">🌐</div>
-          <h3>Terbuka untuk semua</h3>
-          <p>Registrasi terbuka untuk komunitas padel amatir mana saja. Tidak perlu venue sendiri, tidak perlu sponsor. Kumpulkan 6–12 pemain, daftar, main.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-icon">⚔️</div>
-          <h3>Challenge system</h3>
-          <p>Tidak ada jadwal tetap. Tantang tim lain via RNKD App, sepakati hari dan venue, main. Format 3v3 pairs, full rotation — 9 pertandingan per challenge.</p>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-icon">🚀</div>
-          <h3>Jalur ke Liga 1</h3>
-          <p>Top 16 klasemen masuk playoff di Grand Finale. Finish Top 4 — musim depan tim kamu bertanding di Liga 1 bersama 12 venue terbaik Jawa Timur.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Format (spec tables) -->
-  <section class="format" id="format">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">Format &amp; Biaya</span>
-        <h2 class="section-title">Aturan mainnya jelas.<br>Fleksibilitas ada di tangan kamu.</h2>
-      </div>
-
-      <div class="format-grid">
-        <div class="spec-card">
-          <div class="spec-card-glow"></div>
-          <h3>Format Pertandingan</h3>
-          <p class="lead">Setiap challenge = 3 pairs vs 3 pairs, full rotation.</p>
-          <table class="spec-table">
-            <tbody>
-              <tr><td>Komposisi</td><td>3 pairs vs 3 pairs</td></tr>
-              <tr><td>Sistem</td><td>Full rotation</td></tr>
-              <tr><td>Total match</td><td><span class="spec-highlight">9 per challenge</span></td></tr>
-              <tr><td>Format set</td><td>1 set, race to 6</td></tr>
-              <tr><td>Deuce</td><td>Golden point</td></tr>
-              <tr><td>Courts</td><td>Min 2 courts</td></tr>
-              <tr><td>Max grade</td><td>Low Silver</td></tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="spec-card">
-          <div class="spec-card-glow" style="background: var(--mint);"></div>
-          <h3>Roster &amp; Biaya</h3>
-          <p class="lead">Satu pendaftaran, satu musim penuh di RNKD.</p>
-          <table class="spec-table">
-            <tbody>
-              <tr><td>Roster tim</td><td>6–12 pemain</td></tr>
-              <tr><td>Per matchday</td><td>6 pemain aktif</td></tr>
-              <tr><td>Biaya registrasi</td><td><span class="spec-highlight">Rp 2.000.000 / tim</span></td></tr>
-              <tr><td>Min challenges</td><td>4 per season</td></tr>
-              <tr><td>Max challenges</td><td>12 per season</td></tr>
-              <tr><td>Syarat playoff</td><td>Min 4 challenges selesai</td></tr>
-              <tr><td>1 pemain</td><td>= 1 tim saja</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="how" id="how">
-    <div class="how-inner">
-      <div class="section-header">
-        <span class="section-tag">Cara Kerja</span>
-        <h2 class="section-title">Challenge system,<br>4 langkah saja.</h2>
-        <p class="section-subtitle">
-          Tantang tim lain lewat RNKD App — kapan saja, di mana saja, tanpa jadwal tetap.
-        </p>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Pilih lawan</h3>
-          <p>Buka RNKD App, lihat standings, pilih tim yang ingin ditantang. Max 5 peringkat di atas, 3 di bawah.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Sepakati jadwal</h3>
-          <p>Lawan respond dalam 48 jam. Sepakati hari, jam, dan venue (min 2 courts). Main dalam 14 hari.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Bertanding</h3>
-          <p>3v3 pairs, full rotation = 9 match. Skor diinput real-time di RNKD App. Kedua tim upload bukti foto.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Naik klasemen</h3>
-          <p>Menang = 3 poin. Kalah = 1 poin. Standings update instan. Top 16 masuk playoff Grand Finale.</p>
-        </div>
-      </div>
-
-      <div class="challenge-rules">
-        <h4>Aturan Challenge</h4>
-        <ul>
-          <li>Max 1x per lawan per season</li>
-          <li>Min 4 challenges (syarat playoff)</li>
-          <li>Max 12 challenges per season</li>
-          <li>Max 2 pemain Low Silver per matchday</li>
-          <li>Seluruh challenge selesai sebelum Grand Finale</li>
-          <li>Kalah tetap dapat 1 poin — main dan kalah lebih baik daripada tidak main</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Prizes -->
-  <section class="prizes" id="prizes">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">Hadiah &amp; Promosi</span>
-        <h2 class="section-title">Main serius,<br>naik ke puncak.</h2>
-      </div>
-
-      <div class="prize-grid">
-        <div class="prize-card featured">
-          <div class="prize-icon">🎖️</div>
-          <div class="prize-title">Top 4 Playoff</div>
-          <div class="prize-desc">
-            Medali resmi APEX League<br>
-            + <strong>Tiket promosi ke Liga 1</strong><br>
-            <br>
-            Di Liga 1 Season 2: bersaing untuk <strong>BYD Atto 1</strong> &amp; The Apex Cup.
-          </div>
-        </div>
-        <div class="prize-card">
-          <div class="prize-icon">🏆</div>
-          <div class="prize-title">Grand Finale</div>
-          <div class="prize-desc">
-            Sabtu, 4 Juli 2026<br>
-            Top 16 klasemen bertanding playoff di satu venue, satu hari.<br>
-            <br>
-            Closing ceremony, Apex Cup, medali, hadiah — seluruh divisi di satu tempat.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Timeline -->
-  <section class="timeline" id="timeline">
-    <div class="section-inner">
-      <div class="section-header">
-        <span class="section-tag">Season 1</span>
-        <h2 class="section-title">Timeline musim.</h2>
-        <p class="section-subtitle">
-          12 minggu. Dari opening sampai Grand Finale.
-        </p>
-      </div>
-
-      <div class="timeline-list">
-        <div class="timeline-item">
-          <div class="timeline-date">Sabtu, 18 April 2026</div>
-          <div class="timeline-title">Opening &amp; Match Day 1</div>
-          <div class="timeline-desc">Pembukaan resmi APEX League Season 1. Liga 1 dan Liga 2 dimulai bersamaan.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">April – Juni 2026</div>
-          <div class="timeline-title">Musim Kompetisi · ~12 Minggu</div>
-          <div class="timeline-desc">Liga 2: challenge system via RNKD App. Main kapan aja, di mana aja — selama masih dalam periode season.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Sabtu, 4 Juli 2026</div>
-          <div class="timeline-title">Grand Finale</div>
-          <div class="timeline-desc">Top 16 Liga 2 playoff. Top 4 promosi ke Liga 1 Season 2. Closing ceremony, Apex Cup, penyerahan hadiah.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Context: Liga 1 exists -->
+  <!-- Section 1: The ladder (Liga 1 + Liga 2 explainer) -->
   <section class="context">
     <div class="context-inner">
+      <div class="section-header">
+        <span class="section-tag">The ladder</span>
+        <h2 class="section-title">One ecosystem.<br>Two divisions. <span style="color: var(--volt);">One way up.</span></h2>
+        <p class="section-subtitle">
+          Liga 1 is the top. Liga 2 is how you get there.<br>
+          Every season, four seats change hands.
+        </p>
+      </div>
+
       <div class="context-box">
         <div>
-          <h3>Satu ekosistem, <span class="accent">dua divisi.</span></h3>
+          <h3>How promotion &amp; <span class="accent">relegation</span> works.</h3>
           <p>
-            Liga 1 adalah divisi tertinggi — 12 venue mitra bertanding setiap Rabu selama 12 minggu.
-            Bottom 4 terdegradasi. Top 4 Liga 2 naik menggantikan.
+            <strong style="color: var(--orange);">Liga 1</strong> — 12 venue-backed teams. Top tier of East Java padel.
+            Fixed schedule, fixed home courts, every Wednesday for 12 weeks.
+          </p>
+          <p>
+            <strong style="color: var(--volt);">Liga 2</strong> — 30+ community teams. Open format, challenge-based,
+            no home court required. Top 4 finishers earn the ticket up.
           </p>
           <p style="margin-bottom: 0;">
-            <strong style="color: var(--volt);">Liga 2 bukan liga kelas dua</strong> — ini pintu masuk ke puncak.
-            Setiap challenge yang kamu menang membawa tim kamu semakin dekat ke Liga 1.
+            Bottom 4 of Liga 1 drop. Top 4 of Liga 2 rise to take their place.
           </p>
         </div>
         <div class="context-ladder">
@@ -1543,14 +1674,307 @@
           <div class="ladder-arrows">
             <div class="ladder-arrow down">
               <div class="ladder-arrow-icon">↓</div>
-              Bottom 4<br>Degradasi
+              Bottom 4<br>Relegated
             </div>
             <div class="ladder-arrow up">
               <div class="ladder-arrow-icon">↑</div>
-              Top 4<br>Promosi
+              Top 4<br>Promoted
             </div>
           </div>
-          <div class="ladder-tier bottom">Liga 2 · 30+ Komunitas</div>
+          <div class="ladder-tier bottom">Liga 2 · 30+ Communities</div>
+        </div>
+      </div>
+
+      <p class="context-closer">
+        No gatekeepers. <span class="accent">Just ladders.</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 2: What is Liga 2 (3 pillars) -->
+  <section class="what" id="what">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">What is Liga 2</span>
+        <h2 class="section-title">Built for <span style="color: var(--volt);">community players.</span></h2>
+        <p class="section-subtitle">
+          A league designed around how real communities actually play — flexible, social, competitive.
+        </p>
+      </div>
+
+      <div class="what-grid">
+        <div class="pillar-card">
+          <div class="pillar-icon">🌐</div>
+          <h3>Open to everyone</h3>
+          <p>No venue required. Gather 6–12 friends from your community. Register. Play.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">⚔️</div>
+          <h3>Challenge format</h3>
+          <p>You pick the opponent. You pick the time. You pick the court. No fixed schedule, ever.</p>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-icon">🚀</div>
+          <h3>A real path up</h3>
+          <p>Finish Top 4 and your team steps into Liga 1 next season — alongside East Java's top venues.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Format — Matchup grid + rules -->
+  <section class="format" id="format">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Format</span>
+        <h2 class="section-title">3v3 pairs.<br>Full rotation. <span style="color: var(--volt);">Nine matches.</span></h2>
+        <p class="section-subtitle">
+          Every challenge = 3 pairs from your team vs 3 pairs from theirs. Everyone plays everyone.
+        </p>
+      </div>
+
+      <div class="matchup-wrap">
+        <div class="matchup-card">
+          <h4>Example · Team ABC vs Team XYZ</h4>
+          <p class="lead">Each pair plays each opposing pair once — 9 matches total.</p>
+
+          <div class="matchup-grid">
+            <div class="cell head"></div>
+            <div class="cell head">X</div>
+            <div class="cell head">Y</div>
+            <div class="cell head">Z</div>
+
+            <div class="cell side">A</div>
+            <div class="cell pair">AX</div>
+            <div class="cell pair">AY</div>
+            <div class="cell pair">AZ</div>
+
+            <div class="cell side">B</div>
+            <div class="cell pair">BY</div>
+            <div class="cell pair">BZ</div>
+            <div class="cell pair">BX</div>
+
+            <div class="cell side">C</div>
+            <div class="cell pair">CZ</div>
+            <div class="cell pair">CX</div>
+            <div class="cell pair">CY</div>
+          </div>
+
+          <div class="matchup-result">
+            <div class="matchup-result-team win">Team ABC</div>
+            <div class="matchup-result-score">6 – 3</div>
+            <div class="matchup-result-team lose">Team XYZ</div>
+          </div>
+
+          <p class="matchup-legend">
+            Each individual match = 1 match point. Team scores can be 9–0, 7–2, 6–3, 5–4.
+          </p>
+        </div>
+
+        <div class="matchup-card">
+          <h4>The rules at a glance</h4>
+          <p class="lead">Fast, fair, final. No long explanations needed.</p>
+
+          <div class="format-rules">
+            <div class="rule-row">
+              <span class="rule-label">Set format</span>
+              <span class="rule-value volt">1 set · race to 6 · no-ad (golden point)</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Winning team earns</span>
+              <span class="rule-value volt">+3 league points</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Losing team earns</span>
+              <span class="rule-value">+1 league point</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Roster</span>
+              <span class="rule-value">6–12 players · 6 active per match</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Courts required</span>
+              <span class="rule-value">Minimum 2</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Registration</span>
+              <span class="rule-value volt">Rp 2.000.000 / team / season</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Challenges per season</span>
+              <span class="rule-value">Min 4 · Max 12</span>
+            </div>
+          </div>
+
+          <div class="format-footnote">
+            <strong>Eligibility:</strong> Max Low Silver grade. No active athletes or ex-athletes. One player = one team.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Challenge system (How it works) -->
+  <section class="how" id="how">
+    <div class="how-inner">
+      <div class="section-header">
+        <span class="section-tag">Challenge system</span>
+        <h2 class="section-title">No home court.<br>No fixed schedule. <span style="color: var(--volt);">Just padel.</span></h2>
+        <p class="section-subtitle">
+          Liga 1 runs on venues. Liga 2 runs on you.
+        </p>
+      </div>
+
+      <div class="vs-block">
+        <h4>Liga 1 vs Liga 2 — at a glance</h4>
+        <div class="vs-grid">
+          <div class="vs-label"></div>
+          <div class="vs-head liga1">Liga 1</div>
+          <div class="vs-head liga2">Liga 2</div>
+
+          <div class="vs-label">Home venue</div>
+          <div class="vs-val dim">Fixed venue required</div>
+          <div class="vs-val">No home court</div>
+
+          <div class="vs-label">Schedule</div>
+          <div class="vs-val dim">Fixed weekly (Wednesday)</div>
+          <div class="vs-val">You set it, match by match</div>
+
+          <div class="vs-label">Team type</div>
+          <div class="vs-val dim">Venue-backed</div>
+          <div class="vs-val">Community-based</div>
+
+          <div class="vs-label">How you play</div>
+          <div class="vs-val dim">Scheduled fixtures</div>
+          <div class="vs-val">You pick who, when, where</div>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Pick an opponent</h3>
+          <p>Open the RNKD App. See every team in the league. Send the challenge.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Agree on time &amp; court</h3>
+          <p>They reply within 48h. Lock the day, time, and venue — any court, any city.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Play within 14 days</h3>
+          <p>3v3 pairs, 9 matches. Scores update live. Both teams confirm the result.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Climb the standings</h3>
+          <p>Win: +3 league points. Lose: +1. Top 16 reach the Grand Finale playoffs.</p>
+        </div>
+      </div>
+
+      <div class="challenge-rules">
+        <h4>Scheduling — how it actually works</h4>
+        <ul>
+          <li>Challenges run through the RNKD App — launching May 2026</li>
+          <li>Until then, send challenges via WhatsApp with the Liga 2 panitia</li>
+          <li>Opponents must respond within 48 hours</li>
+          <li>Match must be played within 14 days of acceptance</li>
+          <li>Minimum 4 challenges completed to qualify for playoffs</li>
+          <li>Losing still earns 1 point — showing up always beats staying home</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Prizes — Liga 1 vs Liga 2 -->
+  <section class="prizes" id="prizes">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Prizes</span>
+        <h2 class="section-title">Two leagues. <span style="color: var(--volt);">Two prize pools.</span></h2>
+        <p class="section-subtitle">
+          Liga 1 champions take home the silverware. Liga 2's top 4 take home a seat at the top table.
+        </p>
+      </div>
+
+      <div class="prize-grid">
+        <div class="prize-card">
+          <div class="prize-icon">🏆</div>
+          <div class="prize-title" style="color: var(--orange);">Liga 1 Champions</div>
+          <div class="prize-desc">
+            <strong style="color: var(--orange);">Men's Champion</strong><br>
+            BYD Atto 1 + The Apex Cup<br>
+            <br>
+            <strong style="color: var(--orange);">Women's Champion</strong><br>
+            Rp 50,000,000 cash + The Apex Cup<br>
+            <br>
+            Top 4 retain their Liga 1 seat.<br>
+            Bottom 4 are relegated.
+          </div>
+        </div>
+        <div class="prize-card featured">
+          <div class="prize-icon">🎟️</div>
+          <div class="prize-title">Liga 2 · Top 4</div>
+          <div class="prize-desc">
+            <strong>A ticket to Liga 1 Season 2.</strong><br>
+            <br>
+            The prize isn't cash.<br>
+            It's a seat at the top table.<br>
+            <br>
+            <strong>Take the seat</strong> — bring your team straight into Liga 1.<br>
+            <strong>Or sell the ticket</strong> — the panitia helps broker a venue takeover. <em style="color: var(--text-3); font-style: normal; font-size: 13px;">Conditions apply.</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 6: Grand Finale -->
+  <section class="finale">
+    <div class="finale-inner">
+      <div class="finale-box">
+        <h2>One day. Sixteen teams. <span class="accent">One Apex Cup.</span></h2>
+        <p>
+          Twelve weeks of challenges decide the Top 16.
+          Then everything resets — one venue, one day, playoff brackets.
+        </p>
+        <p>
+          Top 4 finishers earn the promotion ticket to Liga 1 Season 2.
+        </p>
+        <div class="finale-meta">
+          July 4, 2026 · Format &amp; venue to be announced
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Timeline -->
+  <section class="timeline" id="timeline">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">Season 1</span>
+        <h2 class="section-title">Twelve weeks.<br><span style="color: var(--volt);">One season.</span></h2>
+        <p class="section-subtitle">
+          From opening day to the Grand Finale.
+        </p>
+      </div>
+
+      <div class="timeline-list">
+        <div class="timeline-item">
+          <div class="timeline-date">Saturday, April 18, 2026</div>
+          <div class="timeline-title">Opening &amp; Match Day 1</div>
+          <div class="timeline-desc">Official launch of APEX League Season 1. Liga 1 and Liga 2 kick off together.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">April – June 2026</div>
+          <div class="timeline-title">Regular Season · ~12 Weeks</div>
+          <div class="timeline-desc">Liga 2 runs on the challenge system — play anywhere, anytime, as long as it's within the season window.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Saturday, July 4, 2026</div>
+          <div class="timeline-title">Grand Finale</div>
+          <div class="timeline-desc">Top 16 of Liga 2 play it out. Top 4 earn the ticket to Liga 1 Season 2. Closing ceremony, Apex Cup, prizes.</div>
         </div>
       </div>
     </div>
@@ -1560,10 +1984,10 @@
   <section class="cta" id="daftar">
     <div class="cta-inner">
       <div class="cta-box">
-        <h2>Siap bertanding?</h2>
+        <h2>Ready to play?</h2>
         <p>
-          Kumpulkan 6–12 pemain. Daftar via WhatsApp.<br>
-          Season dimulai <strong style="color: var(--volt);">18 April 2026</strong>.
+          Gather 6–12 players. Register via WhatsApp.<br>
+          Season starts <strong style="color: var(--volt);">April 18, 2026</strong>.
         </p>
         <div class="cta-actions">
           <a href="https://api.whatsapp.com/send?phone=62811393989&text=Halo%2C%20saya%20mau%20daftar%20Liga%202%20Season%201" class="btn btn-wa" target="_blank" rel="noopener">
@@ -1571,11 +1995,11 @@
             Daftar via WhatsApp
           </a>
           <a href="https://drive.google.com/file/d/1UYGXA5BsySf8KnEYBPJsBDOLr1ReXyvx/view?usp=sharing" class="btn btn-secondary" target="_blank" rel="noopener">
-            Handbook Liga 2
+            Download Handbook
           </a>
         </div>
         <p class="cta-contact">
-          Eka · <strong>+62 811-393-989</strong>
+          Hubungi <strong>Eka</strong> · +62 811-393-989
         </p>
       </div>
     </div>
@@ -1597,21 +2021,21 @@
               <text x="30" y="58" class="logo-text" style="font-family: 'Russo One', sans-serif; font-size: 64px;">RNKD</text>
             </g>
           </svg>
-          <p>Liga padel antar-komunitas di bawah APEX Padel League — Season 1 dimulai 18 April 2026.</p>
+          <p>The inter-community padel league under APEX Padel League — Season 1 kicks off April 18, 2026.</p>
         </div>
 
         <div class="footer-links">
           <div class="footer-col">
             <h5>Liga 2</h5>
             <ul>
-              <li><a href="#what">Apa itu Liga 2</a></li>
-              <li><a href="#format">Format &amp; Biaya</a></li>
-              <li><a href="#how">Cara Daftar</a></li>
+              <li><a href="#what">What is Liga 2</a></li>
+              <li><a href="#format">Format</a></li>
+              <li><a href="#how">How to join</a></li>
               <li><a href="#timeline">Timeline</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h5>Kontak</h5>
+            <h5>Contact</h5>
             <ul>
               <li><a href="https://api.whatsapp.com/send?phone=62811393989" target="_blank" rel="noopener">WhatsApp Eka</a></li>
               <li><a href="mailto:support@rnkdpadel.com">support@rnkdpadel.com</a></li>
