@@ -20,34 +20,48 @@
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Russo+One&family=Tourney:ital,wght@1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --volt: #D2F802;
-      --volt-glow: rgba(210, 248, 2, 0.4);
-      --volt-dim: rgba(210, 248, 2, 0.1);
-      --mint: #30D158;
-      --pink: #FF375F;
-      --cyan: #64D2FF;
-      --orange: #FF9F0A;
-      --purple: #AF52DE;
-      --wa-green: #25D366;
+      /* APEX brand — blue / violet / magenta */
+      --apex-deep: #14105A;          /* deep space blue (bg top) */
+      --apex-blue: #2A1F9E;          /* royal blue */
+      --apex-royal: #4A3CDB;         /* dominant background hue */
+      --apex-violet: #8B5CF6;        /* primary accent */
+      --apex-violet-glow: rgba(139, 92, 246, 0.45);
+      --apex-violet-dim: rgba(139, 92, 246, 0.12);
+      --apex-magenta: #C44BFF;       /* VS badges / highlight pills */
+      --apex-magenta-glow: rgba(196, 75, 255, 0.45);
+      --apex-indigo: #6366F1;        /* softer accent */
+      --apex-pink: #E879F9;          /* warm magenta variant */
+
+      /* Semantic aliases — everything below maps to APEX palette */
+      --volt: var(--apex-violet);
+      --volt-glow: var(--apex-violet-glow);
+      --volt-dim: var(--apex-violet-dim);
+      --mint: var(--apex-indigo);
+      --pink: var(--apex-magenta);
+      --cyan: var(--apex-indigo);
+      --orange: var(--apex-magenta);
+      --purple: var(--apex-violet);
+      --wa-green: #25D366;           /* WhatsApp brand — keep */
       --wa-green-dark: #1EBE5D;
 
-      --bg-0: #000000;
-      --bg-1: #0A0A0A;
-      --bg-2: #111111;
-      --bg-3: #1A1A1A;
-      --bg-4: #222222;
-      --bg-5: #2A2A2A;
+      /* Blue-purple background graduation — zero black */
+      --bg-0: #0B0838;               /* darkest (page base) */
+      --bg-1: #14105A;               /* section tint */
+      --bg-2: #1D1680;               /* card surface */
+      --bg-3: #2A1F9E;               /* elevated */
+      --bg-4: #372BB8;               /* popover */
+      --bg-5: #4636CC;               /* high elevation */
 
       --text-1: #FFFFFF;
-      --text-2: #A0A0A0;
-      --text-3: #666666;
+      --text-2: #C4BFF2;             /* violet-tinted muted */
+      --text-3: #8A82C8;             /* deeper violet-tinted */
 
-      --border: rgba(255, 255, 255, 0.08);
-      --border-light: rgba(255, 255, 255, 0.12);
+      --border: rgba(196, 165, 255, 0.12);
+      --border-light: rgba(196, 165, 255, 0.22);
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -60,10 +74,22 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg-0);
+      background:
+        radial-gradient(ellipse 120% 80% at 50% 0%, var(--apex-royal) 0%, transparent 60%),
+        radial-gradient(ellipse 100% 70% at 50% 100%, var(--apex-blue) 0%, transparent 55%),
+        linear-gradient(180deg, var(--apex-deep) 0%, #0B0838 50%, var(--apex-deep) 100%);
+      background-attachment: fixed;
       color: var(--text-1);
       line-height: 1.6;
       overflow-x: hidden;
+    }
+
+    /* Display type — APEX-wordmark feel (sheared italic speed) */
+    .apex-display {
+      font-family: 'Tourney', 'Inter', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      letter-spacing: -0.02em;
     }
 
     /* ==================== GLOBAL AMBIENT BACKGROUND ==================== */
@@ -95,8 +121,8 @@
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image:
-        linear-gradient(rgba(210, 248, 2, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(210, 248, 2, 0.015) 1px, transparent 1px);
+        linear-gradient(rgba(196, 75, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196, 75, 255, 0.025) 1px, transparent 1px);
       background-size: 60px 60px;
       mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
       -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 20%, transparent 70%);
@@ -108,38 +134,92 @@
       50% { opacity: 1; }
     }
 
+    /* Starfield — tiny white + violet specks, Instagram-style */
+    .starfield {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.9), transparent 50%),
+        radial-gradient(1px 1px at 28% 62%, rgba(255, 255, 255, 0.6), transparent 50%),
+        radial-gradient(1.5px 1.5px at 42% 8%, rgba(196, 75, 255, 0.8), transparent 50%),
+        radial-gradient(1px 1px at 58% 44%, rgba(255, 255, 255, 0.7), transparent 50%),
+        radial-gradient(1px 1px at 72% 80%, rgba(255, 255, 255, 0.85), transparent 50%),
+        radial-gradient(1.5px 1.5px at 88% 24%, rgba(139, 92, 246, 0.9), transparent 50%),
+        radial-gradient(1px 1px at 6% 88%, rgba(255, 255, 255, 0.6), transparent 50%),
+        radial-gradient(1px 1px at 92% 68%, rgba(255, 255, 255, 0.8), transparent 50%),
+        radial-gradient(1px 1px at 34% 32%, rgba(255, 255, 255, 0.5), transparent 50%),
+        radial-gradient(1px 1px at 66% 14%, rgba(232, 121, 249, 0.7), transparent 50%),
+        radial-gradient(1px 1px at 48% 90%, rgba(255, 255, 255, 0.75), transparent 50%),
+        radial-gradient(1px 1px at 20% 50%, rgba(255, 255, 255, 0.6), transparent 50%);
+      background-size: 600px 600px;
+      opacity: 0.85;
+      animation: starTwinkle 8s ease-in-out infinite;
+    }
+
+    @keyframes starTwinkle {
+      0%, 100% { opacity: 0.65; }
+      50% { opacity: 1; }
+    }
+
+    /* Diagonal lens flare — Instagram hero signature */
+    .lens-flare {
+      position: absolute;
+      top: -10%;
+      left: -20%;
+      right: -20%;
+      height: 140%;
+      background: linear-gradient(
+        115deg,
+        transparent 35%,
+        rgba(232, 121, 249, 0.08) 45%,
+        rgba(196, 75, 255, 0.18) 49%,
+        rgba(255, 255, 255, 0.22) 50%,
+        rgba(139, 92, 246, 0.18) 51%,
+        rgba(139, 92, 246, 0.06) 55%,
+        transparent 65%
+      );
+      pointer-events: none;
+      mix-blend-mode: screen;
+      animation: flareShift 18s ease-in-out infinite;
+    }
+
+    @keyframes flareShift {
+      0%, 100% { transform: translateX(-5%) rotate(0deg); opacity: 0.8; }
+      50% { transform: translateX(5%) rotate(2deg); opacity: 1; }
+    }
+
     .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.4;
+      filter: blur(90px);
+      opacity: 0.55;
       animation: orbFloat 20s ease-in-out infinite;
     }
 
     .orb-1 {
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(210, 248, 2, 0.15) 0%, transparent 70%);
-      top: -10%; left: -10%;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.55) 0%, transparent 70%);
+      top: -15%; left: -10%;
       animation-duration: 25s;
     }
     .orb-2 {
-      width: 500px; height: 500px;
-      background: radial-gradient(circle, rgba(100, 210, 255, 0.12) 0%, transparent 70%);
-      top: 20%; right: -15%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(196, 75, 255, 0.45) 0%, transparent 70%);
+      top: 15%; right: -15%;
       animation-delay: -5s;
       animation-duration: 30s;
     }
     .orb-3 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
-      bottom: 20%; left: 10%;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.4) 0%, transparent 70%);
+      bottom: 15%; left: 5%;
       animation-delay: -10s;
       animation-duration: 22s;
     }
     .orb-4 {
-      width: 350px; height: 350px;
-      background: radial-gradient(circle, rgba(210, 248, 2, 0.1) 0%, transparent 70%);
-      bottom: -5%; right: 20%;
+      width: 450px; height: 450px;
+      background: radial-gradient(circle, rgba(232, 121, 249, 0.35) 0%, transparent 70%);
+      bottom: -10%; right: 15%;
       animation-delay: -15s;
       animation-duration: 28s;
     }
@@ -158,9 +238,9 @@
       background:
         linear-gradient(135deg,
           transparent 0%,
-          rgba(210, 248, 2, 0.03) 25%,
+          rgba(139, 92, 246, 0.08) 25%,
           transparent 50%,
-          rgba(37, 211, 102, 0.02) 75%,
+          rgba(196, 75, 255, 0.06) 75%,
           transparent 100%);
       background-size: 400% 400%;
       animation: auroraFlow 20s ease infinite;
@@ -174,7 +254,7 @@
     .vignette {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.4) 100%);
+      background: radial-gradient(ellipse at center, transparent 45%, rgba(11, 8, 56, 0.55) 100%);
       pointer-events: none;
     }
 
@@ -200,10 +280,37 @@
       height: 72px;
       display: flex;
       align-items: center;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(20, 16, 90, 0.55);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
       border-bottom: 1px solid var(--border);
+    }
+
+    /* APEX lockup (PBPI × APEX × Bank Jatim) */
+    .apex-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(196, 165, 255, 0.15);
+      border-radius: 100px;
+      backdrop-filter: blur(12px);
+    }
+
+    .apex-lockup-label {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+
+    .apex-lockup-sep {
+      width: 1px;
+      height: 14px;
+      background: rgba(196, 165, 255, 0.2);
     }
 
     .nav-inner {
@@ -213,9 +320,28 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 20px;
     }
 
-    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      margin-right: auto;
+    }
+
+    .apex-wordmark {
+      font-family: 'Tourney', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--apex-violet) 50%, var(--apex-magenta) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
 
     .nav-menu {
       display: flex;
@@ -238,19 +364,20 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--volt);
-      color: #000;
+      background: linear-gradient(135deg, var(--apex-violet) 0%, var(--apex-magenta) 100%);
+      color: #FFFFFF;
       padding: 10px 20px;
       border-radius: 100px;
       font-weight: 700;
       font-size: 14px;
       text-decoration: none;
       transition: all 0.2s ease;
+      box-shadow: 0 4px 12px -2px rgba(139, 92, 246, 0.4);
     }
 
     .nav-cta:hover {
       transform: translateY(-1px);
-      box-shadow: 0 8px 24px var(--volt-glow);
+      box-shadow: 0 8px 24px var(--apex-violet-glow), 0 0 20px var(--apex-magenta-glow);
     }
 
     .nav-cta svg {
@@ -277,11 +404,14 @@
       top: -20%;
       left: 50%;
       transform: translateX(-50%);
-      width: 1000px;
-      height: 1000px;
-      background: radial-gradient(ellipse, var(--volt-dim) 0%, transparent 60%);
+      width: 1100px;
+      height: 1100px;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(196, 75, 255, 0.25) 0%, transparent 55%),
+        radial-gradient(ellipse at 30% 30%, rgba(139, 92, 246, 0.3) 0%, transparent 60%);
       pointer-events: none;
       animation: ambientPulse 8s ease-in-out infinite;
+      filter: blur(20px);
     }
 
     .hero::after {
@@ -289,7 +419,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 200px;
-      background: linear-gradient(to top, var(--bg-0), transparent);
+      background: linear-gradient(to top, var(--apex-deep), transparent);
       pointer-events: none;
     }
 
@@ -308,44 +438,50 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--bg-3);
-      border: 1px solid var(--border-light);
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(196, 75, 255, 0.3);
       padding: 8px 16px 8px 10px;
       border-radius: 100px;
       font-size: 13px;
       font-weight: 500;
       color: var(--text-2);
       margin-bottom: 32px;
+      backdrop-filter: blur(12px);
     }
 
     .hero-pill-badge {
-      background: var(--volt);
-      color: #000;
+      background: linear-gradient(135deg, var(--apex-violet) 0%, var(--apex-magenta) 100%);
+      color: #FFFFFF;
       padding: 4px 10px;
       border-radius: 100px;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(196, 75, 255, 0.4);
     }
 
     .hero-title {
-      font-size: clamp(48px, 10vw, 96px);
+      font-family: 'Tourney', 'Inter', sans-serif;
+      font-style: italic;
+      font-size: clamp(56px, 11vw, 112px);
       font-weight: 900;
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+      line-height: 0.92;
+      letter-spacing: -0.035em;
       margin-bottom: 24px;
+      text-transform: uppercase;
     }
 
     .hero-title .line { display: block; }
 
     .hero-title .gradient {
-      background: linear-gradient(135deg, var(--volt) 0%, var(--mint) 50%, var(--wa-green) 100%);
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--apex-violet) 45%, var(--apex-magenta) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       position: relative;
       display: inline-block;
+      filter: drop-shadow(0 0 40px rgba(196, 75, 255, 0.35));
     }
 
     .hero-title .gradient::after {
@@ -426,14 +562,17 @@
     }
 
     .btn-secondary {
-      background: var(--bg-3);
+      background: rgba(255, 255, 255, 0.06);
       color: var(--text-1);
-      border: 1px solid var(--border-light);
+      border: 1px solid rgba(196, 75, 255, 0.3);
+      backdrop-filter: blur(12px);
     }
 
     .btn-secondary:hover {
-      background: var(--bg-4);
+      background: rgba(196, 75, 255, 0.12);
+      border-color: rgba(196, 75, 255, 0.5);
       transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
     }
 
     .btn svg {
@@ -454,7 +593,8 @@
       padding: 48px 24px;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      background: var(--bg-1);
+      background: rgba(20, 16, 90, 0.4);
+      backdrop-filter: blur(12px);
     }
 
     .stats-inner {
@@ -471,10 +611,12 @@
     }
 
     .stat-value {
+      font-family: 'Tourney', 'Inter', sans-serif;
+      font-style: italic;
       font-size: clamp(32px, 5vw, 48px);
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: -0.03em;
-      background: linear-gradient(135deg, var(--volt), var(--mint));
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--apex-violet) 55%, var(--apex-magenta) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -503,8 +645,8 @@
 
     .section-tag {
       display: inline-block;
-      background: var(--volt-dim);
-      color: var(--volt);
+      background: rgba(196, 75, 255, 0.12);
+      color: var(--apex-magenta);
       padding: 6px 14px;
       border-radius: 100px;
       font-size: 12px;
@@ -512,14 +654,18 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 20px;
+      border: 1px solid rgba(196, 75, 255, 0.25);
     }
 
     .section-title {
-      font-size: clamp(32px, 5.5vw, 52px);
-      font-weight: 800;
+      font-family: 'Tourney', 'Inter', sans-serif;
+      font-style: italic;
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 900;
       letter-spacing: -0.03em;
-      line-height: 1.1;
+      line-height: 1.05;
       margin-bottom: 20px;
+      text-transform: uppercase;
     }
 
     .section-subtitle {
@@ -542,13 +688,14 @@
     }
 
     .pillar-card {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
+      background: rgba(29, 22, 128, 0.35);
+      border: 1px solid rgba(196, 165, 255, 0.18);
       border-radius: 24px;
       padding: 36px 32px;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(18px);
     }
 
     .pillar-card::before {
@@ -556,23 +703,24 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+      background: linear-gradient(90deg, transparent, rgba(196, 75, 255, 0.5), transparent);
     }
 
     .pillar-card:hover {
       transform: translateY(-8px);
-      border-color: var(--border-light);
-      box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5), 0 0 60px -30px var(--volt);
+      border-color: rgba(196, 75, 255, 0.45);
+      box-shadow: 0 20px 40px -20px rgba(11, 8, 56, 0.6), 0 0 60px -20px var(--apex-violet-glow);
     }
 
-    .pillar-card:nth-child(1):hover { border-color: rgba(210, 248, 2, 0.3); }
-    .pillar-card:nth-child(2):hover { border-color: rgba(100, 210, 255, 0.3); }
-    .pillar-card:nth-child(3):hover { border-color: rgba(255, 159, 10, 0.3); }
+    .pillar-card:nth-child(1):hover { border-color: rgba(139, 92, 246, 0.5); }
+    .pillar-card:nth-child(2):hover { border-color: rgba(196, 75, 255, 0.5); }
+    .pillar-card:nth-child(3):hover { border-color: rgba(232, 121, 249, 0.5); }
 
     .pillar-icon {
       width: 56px;
       height: 56px;
-      background: var(--bg-4);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(196, 75, 255, 0.15));
+      border: 1px solid rgba(196, 75, 255, 0.3);
       border-radius: 16px;
       display: flex;
       align-items: center;
@@ -597,7 +745,7 @@
     /* ==================== FORMAT (spec tables) ==================== */
     .format {
       padding: 120px 24px;
-      background: linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 50%, var(--bg-0) 100%);
+      background: linear-gradient(180deg, transparent 0%, rgba(20, 16, 90, 0.4) 50%, transparent 100%);
     }
 
     .format-grid {
@@ -607,18 +755,19 @@
     }
 
     .spec-card {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
+      background: rgba(29, 22, 128, 0.35);
+      border: 1px solid rgba(196, 165, 255, 0.18);
       border-radius: 28px;
       padding: 40px 32px;
       position: relative;
       overflow: hidden;
       transition: all 0.3s ease;
+      backdrop-filter: blur(18px);
     }
 
     .spec-card:hover {
       transform: translateY(-4px);
-      border-color: var(--border-light);
+      border-color: rgba(196, 75, 255, 0.4);
     }
 
     .spec-card-glow {
@@ -630,9 +779,9 @@
       height: 200px;
       border-radius: 50%;
       filter: blur(60px);
-      opacity: 0.3;
+      opacity: 0.5;
       pointer-events: none;
-      background: var(--volt);
+      background: var(--apex-violet);
     }
 
     .spec-card h3 {
@@ -681,7 +830,7 @@
     }
 
     .spec-highlight {
-      color: var(--volt) !important;
+      color: var(--apex-magenta) !important;
     }
 
     /* ==================== HOW IT WORKS ==================== */
@@ -709,17 +858,20 @@
     .step-number {
       width: 72px;
       height: 72px;
-      background: linear-gradient(135deg, var(--volt), var(--mint));
+      background: linear-gradient(135deg, var(--apex-violet) 0%, var(--apex-magenta) 100%);
       border-radius: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
-      font-weight: 800;
-      color: #000;
+      font-family: 'Tourney', sans-serif;
+      font-style: italic;
+      font-size: 32px;
+      font-weight: 900;
+      color: #FFFFFF;
       margin: 0 auto 20px;
       position: relative;
       z-index: 1;
+      box-shadow: 0 8px 24px -4px rgba(139, 92, 246, 0.5), 0 0 20px rgba(196, 75, 255, 0.3);
     }
 
     .step h3 {
@@ -737,19 +889,20 @@
 
     .challenge-rules {
       margin-top: 72px;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
+      background: rgba(29, 22, 128, 0.35);
+      border: 1px solid rgba(196, 165, 255, 0.18);
       border-radius: 24px;
       padding: 32px;
       max-width: 720px;
       margin-left: auto;
       margin-right: auto;
+      backdrop-filter: blur(18px);
     }
 
     .challenge-rules h4 {
       font-size: 15px;
       font-weight: 700;
-      color: var(--volt);
+      color: var(--apex-magenta);
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 16px;
@@ -775,14 +928,14 @@
       position: absolute;
       left: 0;
       top: 0;
-      color: var(--mint);
+      color: var(--apex-violet);
       font-weight: 700;
     }
 
     /* ==================== PRIZES ==================== */
     .prizes {
       padding: 120px 24px;
-      background: var(--bg-1);
+      background: linear-gradient(180deg, transparent, rgba(20, 16, 90, 0.5), transparent);
     }
 
     .prize-grid {
@@ -794,17 +947,35 @@
     }
 
     .prize-card {
-      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
-      border: 1px solid var(--border);
+      background: linear-gradient(135deg, rgba(29, 22, 128, 0.55) 0%, rgba(20, 16, 90, 0.35) 100%);
+      border: 1px solid rgba(196, 165, 255, 0.18);
       border-radius: 28px;
       padding: 48px 40px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(18px);
+    }
+
+    .prize-card.liga1 {
+      border-color: rgba(139, 92, 246, 0.35);
+    }
+
+    .prize-card.liga1::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(99, 102, 241, 0.25), transparent 70%);
+      pointer-events: none;
     }
 
     .prize-card.featured {
-      border-color: rgba(210, 248, 2, 0.3);
+      border-color: rgba(196, 75, 255, 0.4);
+      box-shadow: 0 0 0 1px rgba(196, 75, 255, 0.15), 0 20px 60px -20px rgba(196, 75, 255, 0.35);
     }
 
     .prize-card.featured::before {
@@ -815,7 +986,7 @@
       transform: translateX(-50%);
       width: 400px;
       height: 300px;
-      background: radial-gradient(ellipse, var(--volt-dim), transparent 70%);
+      background: radial-gradient(ellipse, rgba(196, 75, 255, 0.3), transparent 70%);
       pointer-events: none;
     }
 
@@ -826,11 +997,14 @@
     }
 
     .prize-title {
-      font-size: 22px;
-      font-weight: 800;
-      margin-bottom: 12px;
+      font-family: 'Tourney', 'Inter', sans-serif;
+      font-style: italic;
+      font-size: 26px;
+      font-weight: 900;
+      margin-bottom: 16px;
       letter-spacing: -0.02em;
       position: relative;
+      text-transform: uppercase;
     }
 
     .prize-desc {
@@ -841,7 +1015,7 @@
     }
 
     .prize-desc strong {
-      color: var(--volt);
+      color: var(--apex-magenta);
       font-weight: 700;
     }
 
@@ -863,8 +1037,8 @@
       top: 16px;
       bottom: 16px;
       width: 2px;
-      background: linear-gradient(180deg, var(--volt), var(--mint), var(--cyan));
-      opacity: 0.4;
+      background: linear-gradient(180deg, var(--apex-violet), var(--apex-magenta), var(--apex-indigo));
+      opacity: 0.6;
     }
 
     .timeline-item {
@@ -880,15 +1054,15 @@
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: var(--volt);
-      box-shadow: 0 0 16px var(--volt-glow), 0 0 0 4px var(--bg-0);
+      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
+      box-shadow: 0 0 16px var(--apex-magenta-glow), 0 0 0 4px var(--apex-deep);
     }
 
     .timeline-date {
       display: inline-block;
       font-size: 12px;
       font-weight: 700;
-      color: var(--volt);
+      color: var(--apex-magenta);
       text-transform: uppercase;
       letter-spacing: 1.5px;
       margin-bottom: 8px;
@@ -910,7 +1084,7 @@
     /* ==================== CONTEXT (Liga 1 strip) ==================== */
     .context {
       padding: 100px 24px;
-      background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
+      background: linear-gradient(180deg, transparent, rgba(20, 16, 90, 0.35), transparent);
     }
 
     .context-inner {
@@ -919,25 +1093,29 @@
     }
 
     .context-box {
-      background: var(--bg-2);
-      border: 1px solid var(--border);
+      background: rgba(29, 22, 128, 0.4);
+      border: 1px solid rgba(196, 165, 255, 0.2);
       border-radius: 28px;
       padding: 48px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       align-items: center;
+      backdrop-filter: blur(18px);
     }
 
     .context-box h3 {
-      font-size: 28px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
+      font-family: 'Tourney', 'Inter', sans-serif;
+      font-style: italic;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
       margin-bottom: 16px;
+      text-transform: uppercase;
     }
 
     .context-box h3 .accent {
-      background: linear-gradient(135deg, var(--orange), var(--pink));
+      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -955,9 +1133,10 @@
       padding: 28px 24px;
       border-radius: 24px;
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 159, 10, 0.08), transparent 60%),
-        radial-gradient(ellipse at 50% 100%, rgba(210, 248, 2, 0.08), transparent 60%),
-        var(--bg-3);
+        radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.18), transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(196, 75, 255, 0.18), transparent 60%),
+        rgba(20, 16, 90, 0.55);
+      border: 1px solid rgba(196, 165, 255, 0.15);
       overflow: hidden;
       isolation: isolate;
     }
@@ -973,25 +1152,25 @@
       pointer-events: none;
     }
 
-    /* Promotion stream (left rail, volt, going up) */
+    /* Promotion stream (left rail, violet, going up) */
     .context-ladder::before {
       top: 10%;
       bottom: 10%;
       margin-left: -32px;
-      background: linear-gradient(180deg, transparent, var(--volt) 20%, var(--volt) 80%, transparent);
-      opacity: 0.5;
-      box-shadow: 0 0 14px var(--volt-glow);
+      background: linear-gradient(180deg, transparent, var(--apex-violet) 20%, var(--apex-magenta) 80%, transparent);
+      opacity: 0.7;
+      box-shadow: 0 0 14px var(--apex-violet-glow);
       animation: streamUp 2.4s linear infinite;
     }
 
-    /* Relegation stream (right rail, pink, going down) */
+    /* Relegation stream (right rail, indigo, going down) */
     .context-ladder::after {
       top: 10%;
       bottom: 10%;
       margin-left: 30px;
-      background: linear-gradient(180deg, transparent, var(--pink) 20%, var(--pink) 80%, transparent);
-      opacity: 0.35;
-      box-shadow: 0 0 14px rgba(255, 55, 95, 0.4);
+      background: linear-gradient(180deg, transparent, var(--apex-indigo) 20%, rgba(99, 102, 241, 0.6) 80%, transparent);
+      opacity: 0.5;
+      box-shadow: 0 0 14px rgba(99, 102, 241, 0.5);
       animation: streamDown 2.8s linear infinite;
     }
 
@@ -1042,41 +1221,41 @@
 
     .ladder-tier.top {
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 159, 10, 0.25), transparent 70%),
-        linear-gradient(135deg, rgba(255, 159, 10, 0.18), rgba(255, 159, 10, 0.05));
-      border: 1px solid rgba(255, 159, 10, 0.45);
-      color: var(--orange);
+        radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.4), transparent 70%),
+        linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(139, 92, 246, 0.08));
+      border: 1px solid rgba(99, 102, 241, 0.55);
+      color: #A5B4FC;
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 8px 32px -12px rgba(255, 159, 10, 0.5),
-        0 0 0 1px rgba(255, 159, 10, 0.1);
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 8px 32px -12px rgba(99, 102, 241, 0.6),
+        0 0 0 1px rgba(99, 102, 241, 0.12);
     }
 
     .ladder-tier.top::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
       animation: tierShine 4s ease-in-out infinite;
     }
 
     .ladder-tier.bottom {
       background:
-        radial-gradient(ellipse at 50% 100%, rgba(210, 248, 2, 0.22), transparent 70%),
-        linear-gradient(135deg, rgba(210, 248, 2, 0.14), rgba(210, 248, 2, 0.04));
-      border: 1px solid rgba(210, 248, 2, 0.45);
-      color: var(--volt);
+        radial-gradient(ellipse at 50% 100%, rgba(196, 75, 255, 0.35), transparent 70%),
+        linear-gradient(135deg, rgba(196, 75, 255, 0.2), rgba(139, 92, 246, 0.08));
+      border: 1px solid rgba(196, 75, 255, 0.55);
+      color: var(--apex-magenta);
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 8px 32px -12px rgba(210, 248, 2, 0.5),
-        0 0 0 1px rgba(210, 248, 2, 0.12);
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 8px 32px -12px rgba(196, 75, 255, 0.55),
+        0 0 0 1px rgba(196, 75, 255, 0.15);
     }
 
     .ladder-tier.bottom::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(210, 248, 2, 0.08), transparent);
+      background: linear-gradient(90deg, transparent, rgba(232, 121, 249, 0.1), transparent);
       animation: tierShine 4s ease-in-out infinite reverse;
     }
 
@@ -1099,19 +1278,19 @@
       text-align: center;
       padding: 14px 12px 12px;
       border-radius: 14px;
-      background: rgba(0, 0, 0, 0.35);
+      background: rgba(11, 8, 56, 0.5);
       backdrop-filter: blur(6px);
       border: 1px solid var(--border);
       overflow: hidden;
     }
 
     .ladder-arrow.down {
-      border-color: rgba(255, 55, 95, 0.35);
+      border-color: rgba(99, 102, 241, 0.4);
     }
 
     .ladder-arrow.up {
-      border-color: rgba(210, 248, 2, 0.45);
-      box-shadow: 0 0 0 1px rgba(210, 248, 2, 0.1), 0 6px 20px -8px rgba(210, 248, 2, 0.35);
+      border-color: rgba(196, 75, 255, 0.5);
+      box-shadow: 0 0 0 1px rgba(196, 75, 255, 0.12), 0 6px 20px -8px rgba(196, 75, 255, 0.4);
     }
 
     .ladder-arrow-head {
@@ -1128,34 +1307,41 @@
     }
 
     .ladder-arrow.down .ladder-arrow-head {
-      background: rgba(255, 55, 95, 0.15);
-      color: var(--pink);
-      border: 1px solid rgba(255, 55, 95, 0.4);
+      background: rgba(99, 102, 241, 0.2);
+      color: #A5B4FC;
+      border: 1px solid rgba(99, 102, 241, 0.5);
     }
 
     .ladder-arrow.up .ladder-arrow-head {
-      background: rgba(210, 248, 2, 0.15);
-      color: var(--volt);
-      border: 1px solid rgba(210, 248, 2, 0.5);
-      box-shadow: 0 0 18px var(--volt-glow);
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(196, 75, 255, 0.25));
+      color: var(--apex-magenta);
+      border: 1px solid rgba(196, 75, 255, 0.6);
+      box-shadow: 0 0 18px var(--apex-magenta-glow);
       animation: arrowPulse 2s ease-in-out infinite;
     }
 
     @keyframes arrowPulse {
-      0%, 100% { box-shadow: 0 0 18px var(--volt-glow); }
-      50% { box-shadow: 0 0 28px var(--volt-glow), 0 0 0 6px rgba(210, 248, 2, 0.08); }
+      0%, 100% { box-shadow: 0 0 18px var(--apex-magenta-glow); }
+      50% { box-shadow: 0 0 28px var(--apex-magenta-glow), 0 0 0 6px rgba(196, 75, 255, 0.1); }
     }
 
     .ladder-arrow-count {
-      font-family: 'Russo One', sans-serif;
-      font-size: 22px;
-      letter-spacing: 0.04em;
+      font-family: 'Tourney', 'Russo One', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: 0.02em;
       line-height: 1;
       margin-bottom: 4px;
     }
 
-    .ladder-arrow.down .ladder-arrow-count { color: var(--pink); }
-    .ladder-arrow.up .ladder-arrow-count { color: var(--volt); }
+    .ladder-arrow.down .ladder-arrow-count { color: #A5B4FC; }
+    .ladder-arrow.up .ladder-arrow-count {
+      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     .ladder-arrow-label {
       font-size: 10px;
@@ -1176,7 +1362,7 @@
     }
 
     .context-closer .accent {
-      background: linear-gradient(135deg, var(--volt), var(--mint));
+      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -1192,18 +1378,19 @@
     }
 
     .matchup-card {
-      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
-      border: 1px solid var(--border);
+      background: rgba(29, 22, 128, 0.35);
+      border: 1px solid rgba(196, 165, 255, 0.18);
       border-radius: 24px;
       padding: 36px;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(18px);
     }
 
     .matchup-card h4 {
       font-size: 13px;
       font-weight: 700;
-      color: var(--volt);
+      color: var(--apex-magenta);
       text-transform: uppercase;
       letter-spacing: 1.8px;
       margin-bottom: 20px;
@@ -1221,7 +1408,8 @@
       display: grid;
       grid-template-columns: auto repeat(3, 1fr);
       gap: 8px;
-      background: var(--bg-3);
+      background: rgba(11, 8, 56, 0.55);
+      border: 1px solid rgba(196, 165, 255, 0.12);
       border-radius: 16px;
       padding: 14px;
     }
@@ -1248,15 +1436,15 @@
     .matchup-grid .cell.side {
       background: transparent;
       font-size: 14px;
-      color: var(--pink);
+      color: #A5B4FC;
       font-weight: 800;
       letter-spacing: 0.05em;
     }
 
     .matchup-grid .cell.pair {
-      background: rgba(210, 248, 2, 0.08);
-      border: 1px solid rgba(210, 248, 2, 0.18);
-      color: var(--volt);
+      background: rgba(196, 75, 255, 0.1);
+      border: 1px solid rgba(196, 75, 255, 0.22);
+      color: var(--apex-magenta);
       font-variant-numeric: tabular-nums;
     }
 
@@ -1271,7 +1459,8 @@
     .matchup-result {
       margin-top: 20px;
       padding: 18px 20px;
-      background: var(--bg-3);
+      background: rgba(11, 8, 56, 0.55);
+      border: 1px solid rgba(196, 75, 255, 0.18);
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -1285,14 +1474,16 @@
       letter-spacing: 0.02em;
     }
 
-    .matchup-result-team.win { color: var(--volt); }
+    .matchup-result-team.win { color: var(--apex-magenta); }
     .matchup-result-team.lose { color: var(--text-2); }
 
     .matchup-result-score {
-      font-family: 'Russo One', sans-serif;
-      font-size: 28px;
+      font-family: 'Tourney', 'Russo One', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: 30px;
       color: var(--text-1);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
       font-variant-numeric: tabular-nums;
     }
 
@@ -1326,27 +1517,49 @@
       text-align: right;
     }
 
-    .format-rules .rule-value.volt { color: var(--volt); }
+    .format-rules .rule-value.volt { color: var(--apex-magenta); }
 
     .format-footnote {
       margin-top: 20px;
       padding: 14px 18px;
-      background: rgba(255, 159, 10, 0.08);
-      border: 1px solid rgba(255, 159, 10, 0.2);
+      background: rgba(196, 75, 255, 0.1);
+      border: 1px solid rgba(196, 75, 255, 0.28);
       border-radius: 12px;
       font-size: 13px;
-      color: var(--orange);
+      color: #E879F9;
       line-height: 1.6;
     }
 
     /* ==================== VS BLOCK (Liga 1 vs Liga 2) ==================== */
     .vs-block {
       margin-top: 56px;
-      background: var(--bg-2);
-      border: 1px solid var(--border);
+      background: rgba(29, 22, 128, 0.35);
+      border: 1px solid rgba(196, 165, 255, 0.18);
       border-radius: 24px;
       padding: 32px;
       overflow: hidden;
+      backdrop-filter: blur(18px);
+      position: relative;
+    }
+
+    /* Center VS badge — APEX Instagram signature */
+    .vs-block::after {
+      content: 'VS';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Tourney', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: 64px;
+      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .vs-block h4 {
@@ -1364,6 +1577,13 @@
       grid-template-columns: 1.2fr 1fr 1fr;
       gap: 0;
       border-top: 1px solid var(--border);
+      position: relative;
+      z-index: 1;
+    }
+
+    .vs-block h4 {
+      position: relative;
+      z-index: 1;
     }
 
     .vs-grid > div {
@@ -1381,8 +1601,13 @@
       padding: 20px 12px;
     }
 
-    .vs-grid .vs-head.liga1 { color: var(--orange); }
-    .vs-grid .vs-head.liga2 { color: var(--volt); }
+    .vs-grid .vs-head.liga1 { color: #A5B4FC; }
+    .vs-grid .vs-head.liga2 {
+      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
     .vs-grid .vs-label {
       color: var(--text-3);
@@ -1400,7 +1625,7 @@
     /* ==================== FINALE BLOCK ==================== */
     .finale {
       padding: 120px 24px;
-      background: linear-gradient(180deg, var(--bg-0), var(--bg-1));
+      background: linear-gradient(180deg, transparent, rgba(20, 16, 90, 0.5), transparent);
     }
 
     .finale-inner {
@@ -1410,12 +1635,16 @@
     }
 
     .finale-box {
-      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
-      border: 1px solid rgba(210, 248, 2, 0.25);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(196, 75, 255, 0.15), transparent 60%),
+        linear-gradient(135deg, rgba(29, 22, 128, 0.55) 0%, rgba(20, 16, 90, 0.35) 100%);
+      border: 1px solid rgba(196, 75, 255, 0.35);
       border-radius: 32px;
       padding: 72px 48px;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 0 0 1px rgba(196, 75, 255, 0.1), 0 30px 80px -30px rgba(196, 75, 255, 0.3);
     }
 
     .finale-box::before {
@@ -1426,24 +1655,28 @@
       transform: translateX(-50%);
       width: 560px;
       height: 360px;
-      background: radial-gradient(ellipse, var(--volt-dim), transparent 70%);
+      background: radial-gradient(ellipse, rgba(196, 75, 255, 0.25), transparent 70%);
       pointer-events: none;
     }
 
     .finale-box h2 {
-      font-size: clamp(28px, 4.5vw, 44px);
+      font-family: 'Tourney', 'Inter', sans-serif;
+      font-style: italic;
+      font-size: clamp(32px, 5vw, 52px);
       font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
       margin-bottom: 20px;
       position: relative;
+      text-transform: uppercase;
     }
 
     .finale-box h2 .accent {
-      background: linear-gradient(135deg, var(--volt), var(--mint));
+      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      filter: drop-shadow(0 0 24px rgba(196, 75, 255, 0.4));
     }
 
     .finale-box p {
@@ -1461,12 +1694,13 @@
       gap: 10px;
       align-items: center;
       font-size: 13px;
-      color: var(--text-3);
+      color: var(--apex-magenta);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       padding: 10px 18px;
-      background: var(--bg-3);
+      background: rgba(196, 75, 255, 0.1);
+      border: 1px solid rgba(196, 75, 255, 0.3);
       border-radius: 100px;
       position: relative;
     }
@@ -1482,13 +1716,17 @@
     }
 
     .cta-box {
-      background: linear-gradient(135deg, var(--bg-2) 0%, var(--bg-1) 100%);
-      border: 1px solid rgba(37, 211, 102, 0.25);
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(196, 75, 255, 0.18), transparent 60%),
+        linear-gradient(135deg, rgba(29, 22, 128, 0.6) 0%, rgba(20, 16, 90, 0.4) 100%);
+      border: 1px solid rgba(196, 75, 255, 0.4);
       border-radius: 40px;
       padding: 80px 48px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 0 0 1px rgba(196, 75, 255, 0.12), 0 40px 100px -40px rgba(139, 92, 246, 0.5);
     }
 
     .cta-box::before {
@@ -1497,20 +1735,27 @@
       top: -50%;
       left: 50%;
       transform: translateX(-50%);
-      width: 600px;
-      height: 400px;
-      background: radial-gradient(ellipse, rgba(37, 211, 102, 0.15), transparent 70%);
+      width: 700px;
+      height: 450px;
+      background: radial-gradient(ellipse, rgba(196, 75, 255, 0.25), transparent 70%);
       pointer-events: none;
       animation: ambientPulse 6s ease-in-out infinite;
     }
 
     .cta-box h2 {
-      font-size: clamp(32px, 5.5vw, 52px);
+      font-family: 'Tourney', 'Inter', sans-serif;
+      font-style: italic;
+      font-size: clamp(38px, 6vw, 64px);
       font-weight: 900;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
+      letter-spacing: -0.02em;
+      line-height: 1;
       margin-bottom: 16px;
       position: relative;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #FFFFFF 0%, var(--apex-violet) 50%, var(--apex-magenta) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .cta-box > p {
@@ -1635,7 +1880,7 @@
       transition: color 0.2s ease;
     }
 
-    .footer-col a:hover { color: var(--volt); }
+    .footer-col a:hover { color: var(--apex-magenta); }
 
     .footer-bottom {
       display: flex;
@@ -1655,7 +1900,8 @@
     .footer-social a {
       width: 40px;
       height: 40px;
-      background: var(--bg-3);
+      background: rgba(196, 75, 255, 0.1);
+      border: 1px solid rgba(196, 75, 255, 0.22);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -1666,10 +1912,58 @@
     }
 
     .footer-social a:hover {
-      background: var(--bg-4);
-      color: var(--volt);
+      background: rgba(196, 75, 255, 0.22);
+      border-color: rgba(196, 75, 255, 0.5);
+      color: var(--apex-magenta);
       transform: translateY(-2px);
     }
+
+    /* ==================== SPONSOR STRIP ==================== */
+    .sponsor-strip {
+      padding: 48px 24px 24px;
+      border-top: 1px solid var(--border);
+      background: rgba(11, 8, 56, 0.3);
+    }
+
+    .sponsor-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .sponsor-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    .sponsor-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 32px 48px;
+    }
+
+    .sponsor-logo {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-2);
+      opacity: 0.55;
+      transition: opacity 0.2s ease;
+      padding: 8px 14px;
+      border: 1px solid rgba(196, 165, 255, 0.15);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .sponsor-logo:hover { opacity: 1; }
 
     /* ==================== RESPONSIVE ==================== */
     @media (max-width: 1024px) {
@@ -1688,6 +1982,7 @@
     @media (max-width: 768px) {
       .nav-menu { display: none; }
       .nav { padding: 0 16px; height: 64px; }
+      .apex-lockup { display: none; }
       .hero { padding: 120px 20px 60px; }
       .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
       .steps { grid-template-columns: 1fr; gap: 36px; }
@@ -1697,6 +1992,8 @@
       .cta-box { padding: 56px 24px; }
       .spec-card, .pillar-card { padding: 32px 24px; }
       .context-box { padding: 32px 20px; }
+      .sponsor-logos { gap: 16px 20px; }
+      .sponsor-logo { font-size: 12px; padding: 6px 10px; }
       .wa-fab { bottom: 16px; right: 16px; padding: 12px 18px 12px 16px; font-size: 14px; }
       .wa-fab .wa-fab-text { display: none; }
       .wa-fab { padding: 14px; border-radius: 50%; }
@@ -1712,6 +2009,8 @@
     <div class="orb orb-2"></div>
     <div class="orb orb-3"></div>
     <div class="orb orb-4"></div>
+    <div class="starfield"></div>
+    <div class="lens-flare"></div>
     <div class="grid-overlay"></div>
     <div class="noise-overlay"></div>
     <div class="vignette"></div>
@@ -1721,9 +2020,9 @@
   <svg style="position: absolute; width: 0; height: 0;">
     <defs>
       <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" style="stop-color:#D2F802"/>
-        <stop offset="50%" style="stop-color:#30D158"/>
-        <stop offset="100%" style="stop-color:#D2F802"/>
+        <stop offset="0%" style="stop-color:#FFFFFF"/>
+        <stop offset="50%" style="stop-color:#8B5CF6"/>
+        <stop offset="100%" style="stop-color:#C44BFF"/>
       </linearGradient>
     </defs>
   </svg>
@@ -1731,13 +2030,16 @@
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="/" class="nav-logo" aria-label="RNKD home">
-        <svg class="logo-svg" width="100" height="32" viewBox="0 0 300 80">
-          <g transform="skewX(-8)">
-            <text x="30" y="58" class="logo-text" style="font-family: 'Russo One', sans-serif; font-size: 64px;">RNKD</text>
-          </g>
-        </svg>
+      <a href="/" class="nav-logo" aria-label="APEX League">
+        <span class="apex-wordmark">APEX</span>
       </a>
+      <div class="apex-lockup" aria-label="PBPI Jatim × APEX League × Bank Jatim">
+        <span class="apex-lockup-label">PBPI Jatim</span>
+        <span class="apex-lockup-sep"></span>
+        <span class="apex-lockup-label">Official League</span>
+        <span class="apex-lockup-sep"></span>
+        <span class="apex-lockup-label">Bank Jatim</span>
+      </div>
       <div class="nav-menu">
         <a href="#what">What is Liga 2</a>
         <a href="#format">Format</a>
@@ -1812,7 +2114,7 @@
     <div class="context-inner">
       <div class="section-header">
         <span class="section-tag">The ladder</span>
-        <h2 class="section-title">Two divisions.<br><span style="color: var(--volt);">One way up.</span></h2>
+        <h2 class="section-title">Two divisions.<br><span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">One way up.</span></h2>
         <p class="section-subtitle">
           Liga 1 is the top. Liga 2 is how you get there.<br>
           Every season, four seats change hands.
@@ -1823,11 +2125,11 @@
         <div>
           <h3>How promotion &amp; <span class="accent">relegation</span> works.</h3>
           <p>
-            <strong style="color: var(--orange);">Liga 1</strong> — 12 venue-backed teams. Top tier of East Java padel.
+            <strong style="color: #A5B4FC;">Liga 1</strong> — 12 venue-backed teams. Top tier of East Java padel.
             Fixed schedule, fixed home courts, every Wednesday for 12 weeks.
           </p>
           <p>
-            <strong style="color: var(--volt);">Liga 2</strong> — 30+ community teams. Open format, challenge-based,
+            <strong style="color: var(--apex-magenta);">Liga 2</strong> — 30+ community teams. Open format, challenge-based,
             no home court required. Top 4 finishers earn the ticket up.
           </p>
           <p style="margin-bottom: 0;">
@@ -1873,7 +2175,7 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">What is Liga 2</span>
-        <h2 class="section-title">Built for <span style="color: var(--volt);">community players.</span></h2>
+        <h2 class="section-title">Built for <span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">community players.</span></h2>
         <p class="section-subtitle">
           A league designed around how real communities actually play — flexible, social, competitive.
         </p>
@@ -1904,21 +2206,21 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Prizes</span>
-        <h2 class="section-title">Two leagues. <span style="color: var(--volt);">Two prize pools.</span></h2>
+        <h2 class="section-title">Two leagues. <span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Two prize pools.</span></h2>
         <p class="section-subtitle">
           Liga 1 champions take home the silverware. Liga 2's top 4 take home a seat at the top table.
         </p>
       </div>
 
       <div class="prize-grid">
-        <div class="prize-card">
+        <div class="prize-card liga1">
           <div class="prize-icon">🏆</div>
-          <div class="prize-title" style="color: var(--orange);">Liga 1 Champions</div>
+          <div class="prize-title" style="color: #A5B4FC;">Liga 1 Champions</div>
           <div class="prize-desc">
-            <strong style="color: var(--orange);">Men's Champion</strong><br>
+            <strong style="color: #A5B4FC;">Men's Champion</strong><br>
             BYD Atto 1 + The Apex Cup<br>
             <br>
-            <strong style="color: var(--orange);">Women's Champion</strong><br>
+            <strong style="color: #A5B4FC;">Women's Champion</strong><br>
             Rp 50,000,000 cash + The Apex Cup<br>
             <br>
             Top 4 retain their Liga 1 seat.<br>
@@ -1927,7 +2229,7 @@
         </div>
         <div class="prize-card featured">
           <div class="prize-icon">🎟️</div>
-          <div class="prize-title">Liga 2 · Top 4</div>
+          <div class="prize-title" style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Liga 2 · Top 4</div>
           <div class="prize-desc">
             <strong>A ticket to Liga 1 Season 2.</strong><br>
             <br>
@@ -1947,7 +2249,7 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Format</span>
-        <h2 class="section-title">3 pairs vs 3 pairs.<br>Fixed team round robin.<br><span style="color: var(--volt);">Race to 6. No deuce.</span></h2>
+        <h2 class="section-title">3 pairs vs 3 pairs.<br>Fixed team round robin.<br><span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Race to 6. No deuce.</span></h2>
         <p class="section-subtitle">
           Every match day = 3 pairs from your team vs 3 pairs from theirs. Everyone plays everyone.
         </p>
@@ -2039,7 +2341,7 @@
     <div class="how-inner">
       <div class="section-header">
         <span class="section-tag">Challenge system</span>
-        <h2 class="section-title">No home court. No fixed schedule.<br><span style="color: var(--volt);">Just good games.</span></h2>
+        <h2 class="section-title">No home court. No fixed schedule.<br><span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Just good games.</span></h2>
         <p class="section-subtitle">
           Match around your life, not the other way around. Your team agrees on the time, the day, the court — and plays.
         </p>
@@ -2131,7 +2433,7 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Season 1</span>
-        <h2 class="section-title">Twelve weeks.<br><span style="color: var(--volt);">One season.</span></h2>
+        <h2 class="section-title">Twelve weeks.<br><span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">One season.</span></h2>
         <p class="section-subtitle">
           From opening day to the Grand Finale.
         </p>
@@ -2164,7 +2466,7 @@
         <h2>Ready to play?</h2>
         <p>
           Gather 6–12 players. Register via WhatsApp — no deadlines.<br>
-          Season 1 is live now. <strong style="color: var(--volt);">Season 2 runs September – December 2026.</strong>
+          Season 1 is live now. <strong style="color: var(--apex-magenta);">Season 2 runs September – December 2026.</strong>
         </p>
         <div class="cta-actions">
           <a href="https://api.whatsapp.com/send?phone=62811393989&text=Halo%2C%20saya%20mau%20daftar%20Liga%202%20Season%201" class="btn btn-wa" target="_blank" rel="noopener">
@@ -2188,17 +2490,29 @@
     <span class="wa-fab-text">Daftar Liga 2</span>
   </a>
 
+  <!-- Sponsor Strip -->
+  <section class="sponsor-strip">
+    <div class="sponsor-inner">
+      <div class="sponsor-label">Supported by</div>
+      <div class="sponsor-logos">
+        <span class="sponsor-logo">Bank Jatim</span>
+        <span class="sponsor-logo">PBPI Jatim</span>
+        <span class="sponsor-logo">HAKA Auto</span>
+        <span class="sponsor-logo">Cleo</span>
+        <span class="sponsor-logo">Isoplus</span>
+        <span class="sponsor-logo">Cardea</span>
+        <span class="sponsor-logo">Grab</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-brand">
-          <svg class="logo-svg" width="100" height="32" viewBox="0 0 300 80">
-            <g transform="skewX(-8)">
-              <text x="30" y="58" class="logo-text" style="font-family: 'Russo One', sans-serif; font-size: 64px;">RNKD</text>
-            </g>
-          </svg>
-          <p>The inter-community padel league under APEX Padel League — Season 1 kicks off April 18, 2026.</p>
+          <span class="apex-wordmark" style="font-size: 36px;">APEX</span>
+          <p>A League That Leads. The inter-community padel league — Liga 2 Season 1 kicks off April 18, 2026. Powered by RNKD.</p>
         </div>
 
         <div class="footer-links">
