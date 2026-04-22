@@ -35,6 +35,7 @@
       --apex-magenta-glow: rgba(196, 75, 255, 0.45);
       --apex-indigo: #6366F1;        /* softer accent */
       --apex-pink: #E879F9;          /* warm magenta variant */
+      --apex-accent-text: #F0A8FF;   /* BRIGHT pink-violet for readable text on dark */
 
       /* Semantic aliases — everything below maps to APEX palette */
       --volt: var(--apex-violet);
@@ -57,8 +58,8 @@
       --bg-5: #372BB8;               /* high elevation */
 
       --text-1: #FFFFFF;
-      --text-2: #C4BFF2;             /* violet-tinted muted */
-      --text-3: #8A82C8;             /* deeper violet-tinted */
+      --text-2: #E8E4FF;             /* brighter violet-tinted muted */
+      --text-3: #B8B0E8;             /* brighter violet-tinted secondary */
 
       --border: rgba(196, 165, 255, 0.12);
       --border-light: rgba(196, 165, 255, 0.22);
@@ -75,9 +76,12 @@
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background:
-        radial-gradient(ellipse 120% 80% at 50% 0%, rgba(74, 60, 219, 0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 100% 70% at 50% 100%, rgba(42, 31, 158, 0.4) 0%, transparent 55%),
-        linear-gradient(180deg, #05021F 0%, #08052B 50%, #05021F 100%);
+        /* soft bright spot top-left (IG signature) */
+        radial-gradient(ellipse 70% 50% at 20% 15%, rgba(90, 70, 220, 0.2) 0%, transparent 55%),
+        /* violet glow mid-right */
+        radial-gradient(ellipse 65% 55% at 85% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+        /* blue base graduation — darker for text contrast */
+        linear-gradient(175deg, #0D0842 0%, #08052B 45%, #050220 100%);
       background-attachment: fixed;
       color: var(--text-1);
       line-height: 1.6;
@@ -159,6 +163,30 @@
     @keyframes starTwinkle {
       0%, 100% { opacity: 0.4; }
       50% { opacity: 0.6; }
+    }
+
+    /* Horizontal motion-blur streak — Instagram ball-trail signature */
+    .light-streak {
+      position: absolute;
+      top: 35%;
+      left: -10%;
+      right: -10%;
+      height: 180px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.04) 20%,
+        rgba(233, 197, 255, 0.12) 45%,
+        rgba(255, 255, 255, 0.18) 50%,
+        rgba(233, 197, 255, 0.12) 55%,
+        rgba(255, 255, 255, 0.04) 80%,
+        transparent 100%
+      );
+      filter: blur(24px);
+      pointer-events: none;
+      mix-blend-mode: screen;
+      opacity: 0.55;
+      transform: rotate(-2deg);
     }
 
     /* Diagonal lens flare — Instagram hero signature */
@@ -336,10 +364,7 @@
       font-weight: 900;
       font-size: 28px;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #FFFFFF 0%, var(--apex-violet) 50%, var(--apex-magenta) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #FFFFFF;
       line-height: 1;
     }
 
@@ -475,13 +500,10 @@
     .hero-title .line { display: block; }
 
     .hero-title .gradient {
-      background: linear-gradient(135deg, #FFFFFF 0%, var(--apex-violet) 45%, var(--apex-magenta) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #E9C5FF;
       position: relative;
       display: inline-block;
-      filter: drop-shadow(0 0 40px rgba(196, 75, 255, 0.35));
+      filter: drop-shadow(0 0 40px rgba(233, 197, 255, 0.5));
     }
 
     .hero-title .gradient::after {
@@ -616,10 +638,7 @@
       font-size: clamp(32px, 5vw, 48px);
       font-weight: 900;
       letter-spacing: -0.03em;
-      background: linear-gradient(135deg, #FFFFFF 0%, var(--apex-violet) 55%, var(--apex-magenta) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #FFFFFF;
       line-height: 1;
       margin-bottom: 8px;
     }
@@ -646,7 +665,7 @@
     .section-tag {
       display: inline-block;
       background: rgba(196, 75, 255, 0.12);
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       padding: 6px 14px;
       border-radius: 100px;
       font-size: 12px;
@@ -830,7 +849,7 @@
     }
 
     .spec-highlight {
-      color: var(--apex-magenta) !important;
+      color: var(--apex-accent-text) !important;
     }
 
     /* ==================== HOW IT WORKS ==================== */
@@ -902,7 +921,7 @@
     .challenge-rules h4 {
       font-size: 15px;
       font-weight: 700;
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 16px;
@@ -928,7 +947,7 @@
       position: absolute;
       left: 0;
       top: 0;
-      color: var(--apex-violet);
+      color: var(--apex-accent-text);
       font-weight: 700;
     }
 
@@ -1015,7 +1034,7 @@
     }
 
     .prize-desc strong {
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       font-weight: 700;
     }
 
@@ -1062,7 +1081,7 @@
       display: inline-block;
       font-size: 12px;
       font-weight: 700;
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       text-transform: uppercase;
       letter-spacing: 1.5px;
       margin-bottom: 8px;
@@ -1115,10 +1134,7 @@
     }
 
     .context-box h3 .accent {
-      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #E9C5FF;
     }
 
     .context-box p {
@@ -1244,7 +1260,7 @@
         radial-gradient(ellipse at 50% 100%, rgba(196, 75, 255, 0.35), transparent 70%),
         linear-gradient(135deg, rgba(196, 75, 255, 0.2), rgba(139, 92, 246, 0.08));
       border: 1px solid rgba(196, 75, 255, 0.55);
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         0 8px 32px -12px rgba(196, 75, 255, 0.55),
@@ -1314,7 +1330,7 @@
 
     .ladder-arrow.up .ladder-arrow-head {
       background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(196, 75, 255, 0.25));
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       border: 1px solid rgba(196, 75, 255, 0.6);
       box-shadow: 0 0 18px var(--apex-magenta-glow);
       animation: arrowPulse 2s ease-in-out infinite;
@@ -1337,10 +1353,7 @@
 
     .ladder-arrow.down .ladder-arrow-count { color: #A5B4FC; }
     .ladder-arrow.up .ladder-arrow-count {
-      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #E9C5FF;
     }
 
     .ladder-arrow-label {
@@ -1362,10 +1375,7 @@
     }
 
     .context-closer .accent {
-      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #E9C5FF;
     }
 
     /* ==================== MATCHUP GRID (Format section) ==================== */
@@ -1390,7 +1400,7 @@
     .matchup-card h4 {
       font-size: 13px;
       font-weight: 700;
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       text-transform: uppercase;
       letter-spacing: 1.8px;
       margin-bottom: 20px;
@@ -1444,7 +1454,7 @@
     .matchup-grid .cell.pair {
       background: rgba(196, 75, 255, 0.1);
       border: 1px solid rgba(196, 75, 255, 0.22);
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       font-variant-numeric: tabular-nums;
     }
 
@@ -1474,7 +1484,7 @@
       letter-spacing: 0.02em;
     }
 
-    .matchup-result-team.win { color: var(--apex-magenta); }
+    .matchup-result-team.win { color: var(--apex-accent-text); }
     .matchup-result-team.lose { color: var(--text-2); }
 
     .matchup-result-score {
@@ -1517,7 +1527,7 @@
       text-align: right;
     }
 
-    .format-rules .rule-value.volt { color: var(--apex-magenta); }
+    .format-rules .rule-value.volt { color: var(--apex-accent-text); }
 
     .format-footnote {
       margin-top: 20px;
@@ -1603,10 +1613,7 @@
 
     .vs-grid .vs-head.liga1 { color: #A5B4FC; }
     .vs-grid .vs-head.liga2 {
-      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #E9C5FF;
     }
 
     .vs-grid .vs-label {
@@ -1672,10 +1679,7 @@
     }
 
     .finale-box h2 .accent {
-      background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #E9C5FF;
       filter: drop-shadow(0 0 24px rgba(196, 75, 255, 0.4));
     }
 
@@ -1694,7 +1698,7 @@
       gap: 10px;
       align-items: center;
       font-size: 13px;
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1.5px;
@@ -1752,10 +1756,7 @@
       margin-bottom: 16px;
       position: relative;
       text-transform: uppercase;
-      background: linear-gradient(135deg, #FFFFFF 0%, var(--apex-violet) 50%, var(--apex-magenta) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #FFFFFF;
     }
 
     .cta-box > p {
@@ -1880,7 +1881,7 @@
       transition: color 0.2s ease;
     }
 
-    .footer-col a:hover { color: var(--apex-magenta); }
+    .footer-col a:hover { color: var(--apex-accent-text); }
 
     .footer-bottom {
       display: flex;
@@ -1914,7 +1915,7 @@
     .footer-social a:hover {
       background: rgba(196, 75, 255, 0.22);
       border-color: rgba(196, 75, 255, 0.5);
-      color: var(--apex-magenta);
+      color: var(--apex-accent-text);
       transform: translateY(-2px);
     }
 
@@ -2010,6 +2011,7 @@
     <div class="orb orb-3"></div>
     <div class="orb orb-4"></div>
     <div class="starfield"></div>
+    <div class="light-streak"></div>
     <div class="lens-flare"></div>
     <div class="grid-overlay"></div>
     <div class="noise-overlay"></div>
@@ -2076,9 +2078,6 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Daftar via WhatsApp
         </a>
-        <a href="https://drive.google.com/file/d/1UYGXA5BsySf8KnEYBPJsBDOLr1ReXyvx/view?usp=sharing" class="btn btn-secondary" target="_blank" rel="noopener">
-          Download Handbook
-        </a>
       </div>
 
       <p class="hero-contact">
@@ -2114,7 +2113,7 @@
     <div class="context-inner">
       <div class="section-header">
         <span class="section-tag">The ladder</span>
-        <h2 class="section-title">Two divisions.<br><span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">One way up.</span></h2>
+        <h2 class="section-title">Two divisions.<br><span style="color: #E9C5FF;">One way up.</span></h2>
         <p class="section-subtitle">
           Liga 1 is the top. Liga 2 is how you get there.<br>
           Every season, four seats change hands.
@@ -2129,7 +2128,7 @@
             Fixed schedule, fixed home courts, every Wednesday for 12 weeks.
           </p>
           <p>
-            <strong style="color: var(--apex-magenta);">Liga 2</strong> — 30+ community teams. Open format, challenge-based,
+            <strong style="color: var(--apex-accent-text);">Liga 2</strong> — 30+ community teams. Open format, challenge-based,
             no home court required. Top 4 finishers earn the ticket up.
           </p>
           <p style="margin-bottom: 0;">
@@ -2175,7 +2174,7 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">What is Liga 2</span>
-        <h2 class="section-title">Built for <span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">community players.</span></h2>
+        <h2 class="section-title">Built for <span style="color: #E9C5FF;">community players.</span></h2>
         <p class="section-subtitle">
           A league designed around how real communities actually play — flexible, social, competitive.
         </p>
@@ -2206,7 +2205,7 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Prizes</span>
-        <h2 class="section-title">Two leagues. <span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Two prize pools.</span></h2>
+        <h2 class="section-title">Two leagues. <span style="color: #E9C5FF;">Two prize pools.</span></h2>
         <p class="section-subtitle">
           Liga 1 champions take home the silverware. Liga 2's top 4 take home a seat at the top table.
         </p>
@@ -2229,7 +2228,7 @@
         </div>
         <div class="prize-card featured">
           <div class="prize-icon">🎟️</div>
-          <div class="prize-title" style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Liga 2 · Top 4</div>
+          <div class="prize-title" style="color: #E9C5FF;">Liga 2 · Top 4</div>
           <div class="prize-desc">
             <strong>A ticket to Liga 1 Season 2.</strong><br>
             <br>
@@ -2249,7 +2248,7 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Format</span>
-        <h2 class="section-title">3 pairs vs 3 pairs.<br>Fixed team round robin.<br><span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Race to 6. No deuce.</span></h2>
+        <h2 class="section-title">3 pairs vs 3 pairs.<br>Fixed team round robin.<br><span style="color: #E9C5FF;">Race to 6. No deuce.</span></h2>
         <p class="section-subtitle">
           Every match day = 3 pairs from your team vs 3 pairs from theirs. Everyone plays everyone.
         </p>
@@ -2341,7 +2340,7 @@
     <div class="how-inner">
       <div class="section-header">
         <span class="section-tag">Challenge system</span>
-        <h2 class="section-title">No home court. No fixed schedule.<br><span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Just good games.</span></h2>
+        <h2 class="section-title">No home court. No fixed schedule.<br><span style="color: #E9C5FF;">Just good games.</span></h2>
         <p class="section-subtitle">
           Match around your life, not the other way around. Your team agrees on the time, the day, the court — and plays.
         </p>
@@ -2433,7 +2432,7 @@
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Season 1</span>
-        <h2 class="section-title">Twelve weeks.<br><span style="background: linear-gradient(135deg, var(--apex-violet), var(--apex-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">One season.</span></h2>
+        <h2 class="section-title">Twelve weeks.<br><span style="color: #E9C5FF;">One season.</span></h2>
         <p class="section-subtitle">
           From opening day to the Grand Finale.
         </p>
@@ -2466,15 +2465,12 @@
         <h2>Ready to play?</h2>
         <p>
           Gather 6–12 players. Register via WhatsApp — no deadlines.<br>
-          Season 1 is live now. <strong style="color: var(--apex-magenta);">Season 2 runs September – December 2026.</strong>
+          Season 1 is live now. <strong style="color: var(--apex-accent-text);">Season 2 runs September – December 2026.</strong>
         </p>
         <div class="cta-actions">
           <a href="https://api.whatsapp.com/send?phone=62811393989&text=Halo%2C%20saya%20mau%20daftar%20Liga%202%20Season%201" class="btn btn-wa" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Daftar via WhatsApp
-          </a>
-          <a href="https://drive.google.com/file/d/1UYGXA5BsySf8KnEYBPJsBDOLr1ReXyvx/view?usp=sharing" class="btn btn-secondary" target="_blank" rel="noopener">
-            Download Handbook
           </a>
         </div>
         <p class="cta-contact">
