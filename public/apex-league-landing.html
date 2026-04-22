@@ -28,14 +28,14 @@
       --apex-deep: #14105A;          /* deep space blue (bg top) */
       --apex-blue: #2A1F9E;          /* royal blue */
       --apex-royal: #4A3CDB;         /* dominant background hue */
-      --apex-violet: #8B5CF6;        /* primary accent */
-      --apex-violet-glow: rgba(139, 92, 246, 0.45);
-      --apex-violet-dim: rgba(139, 92, 246, 0.12);
-      --apex-magenta: #7C3AED;       /* VS badges / highlight pills */
-      --apex-magenta-glow: rgba(124, 58, 237, 0.45);
-      --apex-indigo: #6366F1;        /* softer accent */
-      --apex-pink: #A78BFA;          /* warm magenta variant */
-      --apex-accent-text: #C4B5FD;   /* BRIGHT pink-violet for readable text on dark */
+      --apex-violet: #6870E0;        /* primary accent (blue-shifted, 10% darker) */
+      --apex-violet-glow: rgba(104, 112, 224, 0.45);
+      --apex-violet-dim: rgba(104, 112, 224, 0.12);
+      --apex-magenta: #5C45D6;       /* VS badges / highlight pills (blue-shifted, 10% darker) */
+      --apex-magenta-glow: rgba(92, 69, 214, 0.45);
+      --apex-indigo: #5558DB;        /* softer accent */
+      --apex-pink: #8B8BF0;          /* cool blue variant */
+      --apex-accent-text: #B0B5F7;   /* blue-tinted readable text on dark */
 
       /* Semantic aliases — everything below maps to APEX palette */
       --volt: var(--apex-violet);
@@ -79,7 +79,7 @@
         /* soft bright spot top-left (IG signature) */
         radial-gradient(ellipse 70% 50% at 20% 15%, rgba(90, 70, 220, 0.2) 0%, transparent 55%),
         /* violet glow mid-right */
-        radial-gradient(ellipse 65% 55% at 85% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 65% 55% at 85% 50%, rgba(104, 112, 224, 0.15) 0%, transparent 60%),
         /* blue base graduation — darker for text contrast */
         linear-gradient(175deg, #0D0842 0%, #08052B 45%, #050220 100%);
       background-attachment: fixed;
@@ -126,8 +126,8 @@
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       background-image:
-        linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(92, 69, 214, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(92, 69, 214, 0.03) 1px, transparent 1px);
       background-size: 50px 50px;
       mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 20%, transparent 70%);
       -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, black 20%, transparent 70%);
@@ -145,10 +145,10 @@
       background-image:
         radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.9), transparent 50%),
         radial-gradient(1px 1px at 28% 62%, rgba(255, 255, 255, 0.6), transparent 50%),
-        radial-gradient(1.5px 1.5px at 42% 8%, rgba(124, 58, 237, 0.8), transparent 50%),
+        radial-gradient(1.5px 1.5px at 42% 8%, rgba(92, 69, 214, 0.8), transparent 50%),
         radial-gradient(1px 1px at 58% 44%, rgba(255, 255, 255, 0.7), transparent 50%),
         radial-gradient(1px 1px at 72% 80%, rgba(255, 255, 255, 0.85), transparent 50%),
-        radial-gradient(1.5px 1.5px at 88% 24%, rgba(139, 92, 246, 0.9), transparent 50%),
+        radial-gradient(1.5px 1.5px at 88% 24%, rgba(104, 112, 224, 0.9), transparent 50%),
         radial-gradient(1px 1px at 6% 88%, rgba(255, 255, 255, 0.6), transparent 50%),
         radial-gradient(1px 1px at 92% 68%, rgba(255, 255, 255, 0.8), transparent 50%),
         radial-gradient(1px 1px at 34% 32%, rgba(255, 255, 255, 0.5), transparent 50%),
@@ -175,7 +175,7 @@
         90deg,
         transparent 0%,
         rgba(255, 255, 255, 0.03) 15%,
-        rgba(139, 92, 246, 0.14) 40%,
+        rgba(104, 112, 224, 0.14) 40%,
         rgba(255, 255, 255, 0.2) 50%,
         rgba(99, 102, 241, 0.14) 60%,
         rgba(255, 255, 255, 0.03) 85%,
@@ -204,7 +204,7 @@
         90deg,
         transparent 0%,
         rgba(99, 102, 241, 0.08) 30%,
-        rgba(139, 92, 246, 0.12) 50%,
+        rgba(104, 112, 224, 0.12) 50%,
         rgba(99, 102, 241, 0.08) 70%,
         transparent 100%
       );
@@ -231,10 +231,10 @@
         115deg,
         transparent 35%,
         rgba(167, 139, 250, 0.04) 45%,
-        rgba(124, 58, 237, 0.08) 49%,
+        rgba(92, 69, 214, 0.08) 49%,
         rgba(255, 255, 255, 0.1) 50%,
-        rgba(139, 92, 246, 0.08) 51%,
-        rgba(139, 92, 246, 0.03) 55%,
+        rgba(104, 112, 224, 0.08) 51%,
+        rgba(104, 112, 224, 0.03) 55%,
         transparent 65%
       );
       pointer-events: none;
@@ -257,13 +257,13 @@
 
     .orb-1 {
       width: 700px; height: 700px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.32) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(104, 112, 224, 0.32) 0%, transparent 70%);
       top: -15%; left: -10%;
       animation-duration: 18s;
     }
     .orb-2 {
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(124, 58, 237, 0.26) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(92, 69, 214, 0.26) 0%, transparent 70%);
       top: 15%; right: -15%;
       animation-delay: -5s;
       animation-duration: 22s;
@@ -298,10 +298,10 @@
       background:
         linear-gradient(135deg,
           transparent 0%,
-          rgba(139, 92, 246, 0.04) 20%,
+          rgba(104, 112, 224, 0.04) 20%,
           rgba(99, 102, 241, 0.03) 40%,
           transparent 50%,
-          rgba(124, 58, 237, 0.035) 70%,
+          rgba(92, 69, 214, 0.035) 70%,
           transparent 100%);
       background-size: 400% 400%;
       animation: auroraFlow 15s ease infinite;
@@ -359,10 +359,10 @@
       height: 72px;
       display: flex;
       align-items: center;
-      background: rgba(20, 16, 90, 0.55);
+      background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(24px) saturate(180%);
       -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     /* APEX lockup (PBPI × APEX × Bank Jatim) */
@@ -448,7 +448,7 @@
       font-size: 14px;
       text-decoration: none;
       transition: all 0.2s ease;
-      box-shadow: 0 4px 12px -2px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 4px 12px -2px rgba(104, 112, 224, 0.4);
     }
 
     .nav-cta:hover {
@@ -468,9 +468,9 @@
       pointer-events: none;
       z-index: 0;
       background:
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(124, 58, 237, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(92, 69, 214, 0.18) 0%, transparent 60%),
         radial-gradient(ellipse 70% 50% at 80% 60%, rgba(99, 102, 241, 0.15) 0%, transparent 55%),
-        radial-gradient(ellipse 60% 70% at 50% 30%, rgba(139, 92, 246, 0.12) 0%, transparent 50%);
+        radial-gradient(ellipse 60% 70% at 50% 30%, rgba(104, 112, 224, 0.12) 0%, transparent 50%);
       background-size: 200% 200%;
       animation: auroraGlow 12s ease-in-out infinite;
     }
@@ -504,8 +504,8 @@
       width: 1100px;
       height: 1100px;
       background:
-        radial-gradient(ellipse at 50% 50%, rgba(124, 58, 237, 0.25) 0%, transparent 55%),
-        radial-gradient(ellipse at 30% 30%, rgba(139, 92, 246, 0.3) 0%, transparent 60%);
+        radial-gradient(ellipse at 50% 50%, rgba(92, 69, 214, 0.25) 0%, transparent 55%),
+        radial-gradient(ellipse at 30% 30%, rgba(104, 112, 224, 0.3) 0%, transparent 60%);
       pointer-events: none;
       animation: ambientPulse 8s ease-in-out infinite;
       filter: blur(20px);
@@ -535,8 +535,8 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(139, 92, 246, 0.12);
-      border: 1px solid rgba(124, 58, 237, 0.3);
+      background: rgba(104, 112, 224, 0.12);
+      border: 1px solid rgba(92, 69, 214, 0.3);
       padding: 8px 16px 8px 10px;
       border-radius: 100px;
       font-size: 13px;
@@ -555,7 +555,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+      box-shadow: 0 2px 8px rgba(92, 69, 214, 0.4);
     }
 
     .hero-title {
@@ -662,15 +662,15 @@
     .btn-secondary {
       background: rgba(255, 255, 255, 0.06);
       color: var(--text-1);
-      border: 1px solid rgba(124, 58, 237, 0.3);
+      border: 1px solid rgba(92, 69, 214, 0.3);
       backdrop-filter: blur(12px);
     }
 
     .btn-secondary:hover {
-      background: rgba(124, 58, 237, 0.12);
-      border-color: rgba(124, 58, 237, 0.5);
+      background: rgba(92, 69, 214, 0.12);
+      border-color: rgba(92, 69, 214, 0.5);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.25);
+      box-shadow: 0 8px 24px rgba(104, 112, 224, 0.25);
     }
 
     .btn svg {
@@ -740,7 +740,7 @@
 
     .section-tag {
       display: inline-block;
-      background: rgba(124, 58, 237, 0.12);
+      background: rgba(92, 69, 214, 0.12);
       color: var(--apex-accent-text);
       padding: 6px 14px;
       border-radius: 100px;
@@ -749,7 +749,7 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 20px;
-      border: 1px solid rgba(124, 58, 237, 0.25);
+      border: 1px solid rgba(92, 69, 214, 0.25);
     }
 
     .section-title {
@@ -798,24 +798,24 @@
       position: absolute;
       top: 0; left: 0; right: 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.5), transparent);
+      background: linear-gradient(90deg, transparent, rgba(92, 69, 214, 0.5), transparent);
     }
 
     .pillar-card:hover {
       transform: translateY(-8px);
-      border-color: rgba(124, 58, 237, 0.45);
+      border-color: rgba(92, 69, 214, 0.45);
       box-shadow: 0 20px 40px -20px rgba(11, 8, 56, 0.6), 0 0 60px -20px var(--apex-violet-glow);
     }
 
-    .pillar-card:nth-child(1):hover { border-color: rgba(139, 92, 246, 0.5); }
-    .pillar-card:nth-child(2):hover { border-color: rgba(124, 58, 237, 0.5); }
+    .pillar-card:nth-child(1):hover { border-color: rgba(104, 112, 224, 0.5); }
+    .pillar-card:nth-child(2):hover { border-color: rgba(92, 69, 214, 0.5); }
     .pillar-card:nth-child(3):hover { border-color: rgba(167, 139, 250, 0.5); }
 
     .pillar-icon {
       width: 56px;
       height: 56px;
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(124, 58, 237, 0.15));
-      border: 1px solid rgba(124, 58, 237, 0.3);
+      background: linear-gradient(135deg, rgba(104, 112, 224, 0.25), rgba(92, 69, 214, 0.15));
+      border: 1px solid rgba(92, 69, 214, 0.3);
       border-radius: 16px;
       display: flex;
       align-items: center;
@@ -862,7 +862,7 @@
 
     .spec-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(124, 58, 237, 0.4);
+      border-color: rgba(92, 69, 214, 0.4);
     }
 
     .spec-card-glow {
@@ -966,7 +966,7 @@
       margin: 0 auto 20px;
       position: relative;
       z-index: 1;
-      box-shadow: 0 8px 24px -4px rgba(139, 92, 246, 0.5), 0 0 20px rgba(124, 58, 237, 0.3);
+      box-shadow: 0 8px 24px -4px rgba(104, 112, 224, 0.5), 0 0 20px rgba(92, 69, 214, 0.3);
     }
 
     .step h3 {
@@ -1053,7 +1053,7 @@
     }
 
     .prize-card.liga1 {
-      border-color: rgba(139, 92, 246, 0.35);
+      border-color: rgba(104, 112, 224, 0.35);
     }
 
     .prize-card.liga1::before {
@@ -1069,8 +1069,8 @@
     }
 
     .prize-card.featured {
-      border-color: rgba(124, 58, 237, 0.4);
-      box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.15), 0 20px 60px -20px rgba(124, 58, 237, 0.35);
+      border-color: rgba(92, 69, 214, 0.4);
+      box-shadow: 0 0 0 1px rgba(92, 69, 214, 0.15), 0 20px 60px -20px rgba(92, 69, 214, 0.35);
     }
 
     .prize-card.featured::before {
@@ -1081,7 +1081,7 @@
       transform: translateX(-50%);
       width: 400px;
       height: 300px;
-      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.3), transparent 70%);
+      background: radial-gradient(ellipse, rgba(92, 69, 214, 0.3), transparent 70%);
       pointer-events: none;
     }
 
@@ -1238,7 +1238,7 @@
       padding: 24px 20px;
       border-radius: 20px;
       background:
-        radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.12), transparent 70%),
+        radial-gradient(ellipse at 50% 50%, rgba(104, 112, 224, 0.12), transparent 70%),
         rgba(13, 8, 66, 0.5);
       border: 1px solid rgba(167, 139, 250, 0.12);
       display: flex;
@@ -1456,8 +1456,8 @@
     }
 
     .matchup-grid .cell.pair {
-      background: rgba(124, 58, 237, 0.1);
-      border: 1px solid rgba(124, 58, 237, 0.22);
+      background: rgba(92, 69, 214, 0.1);
+      border: 1px solid rgba(92, 69, 214, 0.22);
       color: var(--apex-accent-text);
       font-variant-numeric: tabular-nums;
     }
@@ -1474,7 +1474,7 @@
       margin-top: 20px;
       padding: 18px 20px;
       background: rgba(11, 8, 56, 0.55);
-      border: 1px solid rgba(124, 58, 237, 0.18);
+      border: 1px solid rgba(92, 69, 214, 0.18);
       border-radius: 14px;
       display: flex;
       align-items: center;
@@ -1536,8 +1536,8 @@
     .format-footnote {
       margin-top: 20px;
       padding: 14px 18px;
-      background: rgba(124, 58, 237, 0.1);
-      border: 1px solid rgba(124, 58, 237, 0.28);
+      background: rgba(92, 69, 214, 0.1);
+      border: 1px solid rgba(92, 69, 214, 0.28);
       border-radius: 12px;
       font-size: 13px;
       color: #A78BFA;
@@ -1647,15 +1647,15 @@
 
     .finale-box {
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.15), transparent 60%),
+        radial-gradient(ellipse at 50% 0%, rgba(92, 69, 214, 0.15), transparent 60%),
         linear-gradient(135deg, rgba(29, 22, 128, 0.55) 0%, rgba(20, 16, 90, 0.35) 100%);
-      border: 1px solid rgba(124, 58, 237, 0.35);
+      border: 1px solid rgba(92, 69, 214, 0.35);
       border-radius: 32px;
       padding: 72px 48px;
       position: relative;
       overflow: hidden;
       backdrop-filter: blur(18px);
-      box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.1), 0 30px 80px -30px rgba(124, 58, 237, 0.3);
+      box-shadow: 0 0 0 1px rgba(92, 69, 214, 0.1), 0 30px 80px -30px rgba(92, 69, 214, 0.3);
     }
 
     .finale-box::before {
@@ -1666,7 +1666,7 @@
       transform: translateX(-50%);
       width: 560px;
       height: 360px;
-      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.25), transparent 70%);
+      background: radial-gradient(ellipse, rgba(92, 69, 214, 0.25), transparent 70%);
       pointer-events: none;
     }
 
@@ -1687,7 +1687,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      filter: brightness(1.4) drop-shadow(0 0 24px rgba(124, 58, 237, 0.4));
+      filter: brightness(1.4) drop-shadow(0 0 24px rgba(92, 69, 214, 0.4));
     }
 
     .finale-box p {
@@ -1710,8 +1710,8 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       padding: 10px 18px;
-      background: rgba(124, 58, 237, 0.1);
-      border: 1px solid rgba(124, 58, 237, 0.3);
+      background: rgba(92, 69, 214, 0.1);
+      border: 1px solid rgba(92, 69, 214, 0.3);
       border-radius: 100px;
       position: relative;
     }
@@ -1728,16 +1728,16 @@
 
     .cta-box {
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.18), transparent 60%),
+        radial-gradient(ellipse at 50% 0%, rgba(92, 69, 214, 0.18), transparent 60%),
         linear-gradient(135deg, rgba(29, 22, 128, 0.6) 0%, rgba(20, 16, 90, 0.4) 100%);
-      border: 1px solid rgba(124, 58, 237, 0.4);
+      border: 1px solid rgba(92, 69, 214, 0.4);
       border-radius: 40px;
       padding: 80px 48px;
       text-align: center;
       position: relative;
       overflow: hidden;
       backdrop-filter: blur(18px);
-      box-shadow: 0 0 0 1px rgba(124, 58, 237, 0.12), 0 40px 100px -40px rgba(139, 92, 246, 0.5);
+      box-shadow: 0 0 0 1px rgba(92, 69, 214, 0.12), 0 40px 100px -40px rgba(104, 112, 224, 0.5);
     }
 
     .cta-box::before {
@@ -1748,7 +1748,7 @@
       transform: translateX(-50%);
       width: 700px;
       height: 450px;
-      background: radial-gradient(ellipse, rgba(124, 58, 237, 0.25), transparent 70%);
+      background: radial-gradient(ellipse, rgba(92, 69, 214, 0.25), transparent 70%);
       pointer-events: none;
       animation: ambientPulse 6s ease-in-out infinite;
     }
@@ -1927,8 +1927,8 @@
     .footer-social a {
       width: 40px;
       height: 40px;
-      background: rgba(124, 58, 237, 0.1);
-      border: 1px solid rgba(124, 58, 237, 0.22);
+      background: rgba(92, 69, 214, 0.1);
+      border: 1px solid rgba(92, 69, 214, 0.22);
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -1939,8 +1939,8 @@
     }
 
     .footer-social a:hover {
-      background: rgba(124, 58, 237, 0.22);
-      border-color: rgba(124, 58, 237, 0.5);
+      background: rgba(92, 69, 214, 0.22);
+      border-color: rgba(92, 69, 214, 0.5);
       color: var(--apex-accent-text);
       transform: translateY(-2px);
     }
@@ -2069,7 +2069,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
     <defs>
       <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" style="stop-color:#FFFFFF"/>
-        <stop offset="50%" style="stop-color:#8B5CF6"/>
+        <stop offset="50%" style="stop-color:#6870E0"/>
         <stop offset="100%" style="stop-color:#7C3AED"/>
       </linearGradient>
     </defs>
