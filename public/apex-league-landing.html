@@ -521,7 +521,11 @@
     .hero-title .line { display: block; }
 
     .hero-title .gradient {
-      color: #818CF8;
+      background: linear-gradient(135deg, #7C3AED, #4F46E5, #1E3A8A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: brightness(1.4);
       position: relative;
       display: inline-block;
       filter: drop-shadow(0 0 40px rgba(233, 197, 255, 0.5));
@@ -700,7 +704,7 @@
     .section-title {
       font-family: 'Cornero', 'Saira Condensed', 'Inter', sans-serif;
       font-style: italic;
-      font-size: clamp(36px, 6vw, 60px);
+      font-size: clamp(25px, 4.2vw, 42px);
       font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.05;
@@ -1147,15 +1151,27 @@
     .context-box h3 {
       font-family: 'Cornero', 'Saira Condensed', 'Inter', sans-serif;
       font-style: italic;
-      font-size: 30px;
+      font-size: 21px;
       font-weight: 900;
       letter-spacing: -0.02em;
       margin-bottom: 16px;
       text-transform: uppercase;
     }
 
+    .vivid-accent {
+      background: linear-gradient(135deg, #7C3AED, #4F46E5, #1E3A8A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: brightness(1.4);
+    }
+
     .context-box h3 .accent {
-      color: #818CF8;
+      background: linear-gradient(135deg, #7C3AED, #4F46E5, #1E3A8A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: brightness(1.4);
     }
 
     .context-box p {
@@ -1218,7 +1234,7 @@
 
     /* LIGA 1 — bright lavender pill (featured/top) */
     .ladder-tier.top {
-      background: linear-gradient(135deg, #818CF8 0%, #D9B8FF 100%);
+      background: linear-gradient(135deg, #6D28D9 0%, #4F46E5 100%);
       color: #1A1270;
       box-shadow: 0 6px 22px -10px rgba(217, 184, 255, 0.5);
     }
@@ -1277,7 +1293,7 @@
     }
 
     .ladder-arrow.up .ladder-arrow-head {
-      background: #818CF8;
+      background: #6D28D9;
       color: #1A1270;
     }
 
@@ -1291,7 +1307,7 @@
     }
 
     .ladder-arrow.down .ladder-arrow-count { color: #A5B4FC; }
-    .ladder-arrow.up .ladder-arrow-count { color: #818CF8; }
+    .ladder-arrow.up .ladder-arrow-count { color: #6D5AE6; }
 
     .ladder-arrow-label {
       font-size: 10px;
@@ -1312,7 +1328,7 @@
     }
 
     .context-closer .accent {
-      color: #818CF8;
+      color: #6D5AE6;
     }
 
     /* ==================== MATCHUP GRID (Format section) ==================== */
@@ -1550,7 +1566,7 @@
 
     .vs-grid .vs-head.liga1 { color: #A5B4FC; }
     .vs-grid .vs-head.liga2 {
-      color: #818CF8;
+      color: #6D5AE6;
     }
 
     .vs-grid .vs-label {
@@ -1606,7 +1622,7 @@
     .finale-box h2 {
       font-family: 'Cornero', 'Saira Condensed', 'Inter', sans-serif;
       font-style: italic;
-      font-size: clamp(32px, 5vw, 52px);
+      font-size: clamp(22px, 3.5vw, 36px);
       font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 1.05;
@@ -1616,8 +1632,11 @@
     }
 
     .finale-box h2 .accent {
-      color: #818CF8;
-      filter: drop-shadow(0 0 24px rgba(124, 58, 237, 0.4));
+      background: linear-gradient(135deg, #7C3AED, #4F46E5, #1E3A8A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: brightness(1.4) drop-shadow(0 0 24px rgba(124, 58, 237, 0.4));
     }
 
     .finale-box p {
@@ -1686,7 +1705,7 @@
     .cta-box h2 {
       font-family: 'Cornero', 'Saira Condensed', 'Inter', sans-serif;
       font-style: italic;
-      font-size: clamp(38px, 6vw, 64px);
+      font-size: clamp(27px, 4.2vw, 45px);
       font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 1;
@@ -1944,7 +1963,7 @@
       .spec-card, .pillar-card { padding: 32px 24px; }
       .context { padding: 80px 16px; }
       .context-box { padding: 32px 20px; overflow: hidden; word-break: break-word; }
-      .context-box h3 { font-size: 22px; }
+      .context-box h3 { font-size: 15px; }
       .sponsor-logos { gap: 16px 20px; }
       .sponsor-logo { height: 42px; padding: 6px 10px; }
       .wa-fab {
@@ -2086,7 +2105,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
     <div class="context-inner">
       <div class="section-header">
         <span class="section-tag">The ladder</span>
-        <h2 class="section-title">Two divisions.<br><span style="color: #818CF8;">One way up.</span></h2>
+        <h2 class="section-title">Two divisions.<br><span class="vivid-accent">One way up.</span></h2>
         <p class="section-subtitle">
           Liga 1 is the top. Liga 2 is how you get there.<br>
           Every season, four seats change hands.
@@ -2147,7 +2166,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">What is Liga 2</span>
-        <h2 class="section-title">Built for <span style="color: #818CF8;">community players.</span></h2>
+        <h2 class="section-title">Built for <span class="vivid-accent">community players.</span></h2>
         <p class="section-subtitle">
           A league designed around how real communities actually play — flexible, social, competitive.
         </p>
@@ -2178,7 +2197,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Prizes</span>
-        <h2 class="section-title">Two leagues. <span style="color: #818CF8;">Two prize pools.</span></h2>
+        <h2 class="section-title">Two leagues. <span class="vivid-accent">Two prize pools.</span></h2>
         <p class="section-subtitle">
           Liga 1 champions take home the silverware. Liga 2's top 4 take home a seat at the top table.
         </p>
@@ -2201,7 +2220,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
         </div>
         <div class="prize-card featured">
           <div class="prize-icon">🎟️</div>
-          <div class="prize-title" style="color: #818CF8;">Liga 2 · Top 4</div>
+          <div class="prize-title" class="vivid-accent">Liga 2 · Top 4</div>
           <div class="prize-desc">
             <strong>A ticket to Liga 1 Season 2.</strong><br>
             <br>
@@ -2221,7 +2240,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Format</span>
-        <h2 class="section-title">3 pairs vs 3 pairs.<br>Fixed team round robin.<br><span style="color: #818CF8;">Race to 6. No deuce.</span></h2>
+        <h2 class="section-title">3 pairs vs 3 pairs.<br>Fixed team round robin.<br><span class="vivid-accent">Race to 6. No deuce.</span></h2>
         <p class="section-subtitle">
           Every match day = 3 pairs from your team vs 3 pairs from theirs. Everyone plays everyone.
         </p>
@@ -2313,7 +2332,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
     <div class="how-inner">
       <div class="section-header">
         <span class="section-tag">Challenge system</span>
-        <h2 class="section-title">No home court. No fixed schedule.<br><span style="color: #818CF8;">Just good games.</span></h2>
+        <h2 class="section-title">No home court. No fixed schedule.<br><span class="vivid-accent">Just good games.</span></h2>
         <p class="section-subtitle">
           Match around your life, not the other way around. Your team agrees on the time, the day, the court — and plays.
         </p>
@@ -2405,7 +2424,7 @@ src="https://www.facebook.com/tr?id=1437245524396653&ev=PageView&noscript=1"
     <div class="section-inner">
       <div class="section-header">
         <span class="section-tag">Season 1</span>
-        <h2 class="section-title">Twelve weeks.<br><span style="color: #818CF8;">One season.</span></h2>
+        <h2 class="section-title">Twelve weeks.<br><span class="vivid-accent">One season.</span></h2>
         <p class="section-subtitle">
           From opening day to the Grand Finale.
         </p>
