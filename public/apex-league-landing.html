@@ -1144,217 +1144,133 @@
       margin-bottom: 20px;
     }
 
+    /* ============ LADDER — IG standings-row inspired ============ */
     .context-ladder {
       position: relative;
-      padding: 28px 24px;
-      border-radius: 24px;
+      padding: 24px 20px;
+      border-radius: 20px;
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.18), transparent 60%),
-        radial-gradient(ellipse at 50% 100%, rgba(196, 75, 255, 0.18), transparent 60%),
-        rgba(20, 16, 90, 0.55);
-      border: 1px solid rgba(196, 165, 255, 0.15);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .context-ladder::before,
-    .context-ladder::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Promotion stream (left rail, violet, going up) */
-    .context-ladder::before {
-      top: 10%;
-      bottom: 10%;
-      margin-left: -32px;
-      background: linear-gradient(180deg, transparent, var(--apex-violet) 20%, var(--apex-magenta) 80%, transparent);
-      opacity: 0.7;
-      box-shadow: 0 0 14px var(--apex-violet-glow);
-      animation: streamUp 2.4s linear infinite;
-    }
-
-    /* Relegation stream (right rail, indigo, going down) */
-    .context-ladder::after {
-      top: 10%;
-      bottom: 10%;
-      margin-left: 30px;
-      background: linear-gradient(180deg, transparent, var(--apex-indigo) 20%, rgba(99, 102, 241, 0.6) 80%, transparent);
-      opacity: 0.5;
-      box-shadow: 0 0 14px rgba(99, 102, 241, 0.5);
-      animation: streamDown 2.8s linear infinite;
-    }
-
-    @keyframes streamUp {
-      0% { background-position: 0 100%; }
-      100% { background-position: 0 -100%; }
-    }
-    @keyframes streamDown {
-      0% { background-position: 0 -100%; }
-      100% { background-position: 0 100%; }
-    }
-
-    .ladder-tier {
-      position: relative;
-      z-index: 2;
-      padding: 22px 20px;
-      border-radius: 18px;
+        radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.12), transparent 70%),
+        rgba(13, 8, 66, 0.5);
+      border: 1px solid rgba(196, 165, 255, 0.12);
       display: flex;
       flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Tier pills — solid lavender for Liga 1, deep blue for Liga 2 (IG row style) */
+    .ladder-tier {
+      position: relative;
+      padding: 18px 22px;
+      border-radius: 14px;
+      display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-align: center;
-      overflow: hidden;
+      gap: 16px;
     }
 
     .ladder-tier .tier-icon {
-      font-size: 26px;
+      font-size: 28px;
       line-height: 1;
-      margin-bottom: 4px;
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+      flex-shrink: 0;
     }
 
     .ladder-tier .tier-name {
-      font-family: 'Russo One', sans-serif;
-      font-size: 18px;
-      letter-spacing: 0.04em;
+      font-family: 'Saira Condensed', 'Inter', sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      font-size: 26px;
+      letter-spacing: 0.02em;
       line-height: 1;
+      flex: 1;
     }
 
     .ladder-tier .tier-meta {
-      font-size: 12px;
-      letter-spacing: 1.5px;
+      font-size: 11px;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 800;
       opacity: 0.75;
+      text-align: right;
+      line-height: 1.3;
+      flex-shrink: 0;
     }
 
+    /* LIGA 1 — bright lavender pill (featured/top) */
     .ladder-tier.top {
-      background:
-        radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.4), transparent 70%),
-        linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(139, 92, 246, 0.08));
-      border: 1px solid rgba(99, 102, 241, 0.55);
-      color: #A5B4FC;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 8px 32px -12px rgba(99, 102, 241, 0.6),
-        0 0 0 1px rgba(99, 102, 241, 0.12);
+      background: linear-gradient(135deg, #E9C5FF 0%, #D9B8FF 100%);
+      color: #1A1270;
+      box-shadow: 0 6px 22px -10px rgba(217, 184, 255, 0.5);
     }
 
-    .ladder-tier.top::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-      animation: tierShine 4s ease-in-out infinite;
-    }
-
+    /* LIGA 2 — solid deep-blue pill with white italic (IG alt-row) */
     .ladder-tier.bottom {
-      background:
-        radial-gradient(ellipse at 50% 100%, rgba(196, 75, 255, 0.35), transparent 70%),
-        linear-gradient(135deg, rgba(196, 75, 255, 0.2), rgba(139, 92, 246, 0.08));
-      border: 1px solid rgba(196, 75, 255, 0.55);
-      color: var(--apex-accent-text);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 8px 32px -12px rgba(196, 75, 255, 0.55),
-        0 0 0 1px rgba(196, 75, 255, 0.15);
+      background: #FFFFFF;
+      color: #1A1270;
+      box-shadow: 0 6px 22px -10px rgba(255, 255, 255, 0.25);
     }
 
-    .ladder-tier.bottom::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(232, 121, 249, 0.1), transparent);
-      animation: tierShine 4s ease-in-out infinite reverse;
-    }
-
-    @keyframes tierShine {
-      0%, 100% { transform: translateX(-100%); }
-      50% { transform: translateX(100%); }
-    }
-
+    /* Arrows row — compact, centered between the two pills */
     .ladder-arrows {
-      position: relative;
-      z-index: 2;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      padding: 20px 4px;
+      gap: 10px;
     }
 
     .ladder-arrow {
-      position: relative;
       text-align: center;
-      padding: 14px 12px 12px;
-      border-radius: 14px;
-      background: rgba(11, 8, 56, 0.5);
-      backdrop-filter: blur(6px);
-      border: 1px solid var(--border);
-      overflow: hidden;
+      padding: 12px 10px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
 
     .ladder-arrow.down {
-      border-color: rgba(99, 102, 241, 0.4);
+      border-color: rgba(165, 180, 252, 0.25);
     }
 
     .ladder-arrow.up {
-      border-color: rgba(196, 75, 255, 0.5);
-      box-shadow: 0 0 0 1px rgba(196, 75, 255, 0.12), 0 6px 20px -8px rgba(196, 75, 255, 0.4);
+      border-color: rgba(233, 197, 255, 0.35);
+      background: rgba(233, 197, 255, 0.08);
     }
 
     .ladder-arrow-head {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
-      margin-bottom: 8px;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 900;
       line-height: 1;
+      flex-shrink: 0;
     }
 
     .ladder-arrow.down .ladder-arrow-head {
-      background: rgba(99, 102, 241, 0.2);
+      background: rgba(165, 180, 252, 0.18);
       color: #A5B4FC;
-      border: 1px solid rgba(99, 102, 241, 0.5);
     }
 
     .ladder-arrow.up .ladder-arrow-head {
-      background: linear-gradient(135deg, rgba(139, 92, 246, 0.25), rgba(196, 75, 255, 0.25));
-      color: var(--apex-accent-text);
-      border: 1px solid rgba(196, 75, 255, 0.6);
-      box-shadow: 0 0 18px var(--apex-magenta-glow);
-      animation: arrowPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes arrowPulse {
-      0%, 100% { box-shadow: 0 0 18px var(--apex-magenta-glow); }
-      50% { box-shadow: 0 0 28px var(--apex-magenta-glow), 0 0 0 6px rgba(196, 75, 255, 0.1); }
+      background: #E9C5FF;
+      color: #1A1270;
     }
 
     .ladder-arrow-count {
-      font-family: 'Saira Condensed', 'Russo One', sans-serif;
+      font-family: 'Saira Condensed', 'Inter', sans-serif;
       font-style: italic;
       font-weight: 900;
-      font-size: 24px;
+      font-size: 22px;
       letter-spacing: 0.02em;
       line-height: 1;
-      margin-bottom: 4px;
     }
 
     .ladder-arrow.down .ladder-arrow-count { color: #A5B4FC; }
-    .ladder-arrow.up .ladder-arrow-count {
-      color: #E9C5FF;
-    }
+    .ladder-arrow.up .ladder-arrow-count { color: #E9C5FF; }
 
     .ladder-arrow-label {
       font-size: 10px;
@@ -2139,7 +2055,7 @@
           <div class="ladder-tier top">
             <div class="tier-icon">🏆</div>
             <div class="tier-name">LIGA 1</div>
-            <div class="tier-meta">12 Venue Teams</div>
+            <div class="tier-meta">12 Venue<br>Teams</div>
           </div>
 
           <div class="ladder-arrows">
@@ -2158,7 +2074,7 @@
           <div class="ladder-tier bottom">
             <div class="tier-icon">⚡</div>
             <div class="tier-name">LIGA 2</div>
-            <div class="tier-meta">30+ Communities</div>
+            <div class="tier-meta">30+<br>Communities</div>
           </div>
         </div>
       </div>
